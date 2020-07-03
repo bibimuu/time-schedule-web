@@ -15,3 +15,8 @@
 .schedulesCard {
   background-color: rgb(255, 255, 255);
 }
+
+.blank {
+  height: 20px;
+  width: 20px;
+}

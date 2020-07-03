@@ -29,13 +29,24 @@ export const TimeSchedules = () => {
               <div>
                 {[...Array(5)].map((_, i) => {
                   return (
-                    <ScheduleCard>
-                      {Data[day]
-                        ? Data[day].find((d) => d.time === i + 1)
-                          ? Data[day].find((d) => d.time === i + 1).title
-                          : "none"
-                        : "nothing"}
-                    </ScheduleCard>
+                    <div>
+                      {Data[day] ? (
+                        Data[day].find((d) => d.time === i + 1) ? (
+                          Data[day].find((d) => d.time === i + 1).title
+                        ) : (
+                          <div className="blank"></div>
+                        )
+                      ) : (
+                        <div className="blank"></div>
+                      )}
+                      <ScheduleCard
+                        title={
+                          Data[day].find((d) => d.time === i + 1)
+                            ? Data[day].find((d) => d.time === i + 1).title
+                            : null
+                        }
+                      />
+                    </div>
                   );
                 })}
               </div>

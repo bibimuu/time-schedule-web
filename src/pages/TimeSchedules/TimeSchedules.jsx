@@ -32,20 +32,15 @@ export const TimeSchedules = () => {
                     <div>
                       {Data[day] ? (
                         Data[day].find((d) => d.time === i + 1) ? (
-                          Data[day].find((d) => d.time === i + 1).title
+                          <ScheduleCard
+                            title={Data[day].find((d) => d.time === i + 1).title}
+                          />
                         ) : (
                           <div className="blank"></div>
                         )
                       ) : (
                         <div className="blank"></div>
                       )}
-                      <ScheduleCard
-                        title={
-                          Data[day].find((d) => d.time === i + 1)
-                            ? Data[day].find((d) => d.time === i + 1).title
-                            : null
-                        }
-                      />
                     </div>
                   );
                 })}

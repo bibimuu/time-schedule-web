@@ -1,5 +1,5 @@
-import React from "react";
-import "../pages/TimeSchedules/style.css";
+import React from 'react';
+import '../pages/TimeSchedules/style.css';
 
 export const ScheduleCard = (props) => {
   return (

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../../config/firebase';
-import { Data } from '../data.js';
+import { Route, Link } from 'react-router-dom';
+
 import { ScheduleCard } from '../../components/SchedulesCard';
 import './style.css';
 
-export const TimeSchedules = () => {
+export const TimeSchedules = (props) => {
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -24,6 +25,10 @@ export const TimeSchedules = () => {
     wed: '水',
     thu: '木',
     fri: '金',
+  };
+
+  const addSchedule = () => {
+    props.history.push('/AddSchedules');
   };
 
   if (!data) {
@@ -48,12 +53,13 @@ export const TimeSchedules = () => {
                             title={
                               data[day].find((d) => d.time === i + 1).title
                             }
+                            addSchedule={addSchedule}
                           />
                         ) : (
-                          <div className="blank"></div>
+                          <div className="blank" onClick={addSchedule}></div>
                         )
                       ) : (
-                        <div className="blank"></div>
+                        <div className="blank" onClick={addSchedule}></div>
                       )}
                     </div>
                   );

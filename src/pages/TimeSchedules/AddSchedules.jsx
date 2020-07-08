@@ -5,22 +5,6 @@ import './style.css';
 export const AddSchedules = (props) => {
   const [title, setTitle] = useState('');
   const [teacher, setTeacher] = useState('');
-  // const [data, setData] = useState();
-
-  // useEffect(() => {
-  //   const getSchedules = async () => {
-  //     const db = firebase.firestore();
-
-  //     const docRef = db.collection('schedules').doc('3IwLuJlxz3Pl4QLpvpwx');
-  //     const docSnapShot = await docRef.get();
-  //     setData(docSnapShot.data());
-  //   };
-  //   getSchedules();
-  // }, []);
-
-  // if (!data) {
-  //   return <>loading</>;
-  // }
 
   const titleHandleChange = (event) => {
     setTitle(event.target.value);
@@ -29,21 +13,26 @@ export const AddSchedules = (props) => {
     setTeacher(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    console.log(event);
-    debugger;
+  const handleSubmit = (e) => {
+    e.preventDefault();
     if (title === '' || teacher === '') {
       alert('教科を入力してください');
       props.history.push('/AddSchedules');
       return;
     }
+    let mon = {
+      title: title,
+      teacher: teacher,
+    };
+    const db = firebase.firestore();
+    db.collection('schedules')
+      .doc('3IwLuJlxz3Pl4QLpvpwx')
+      .set({ mon }, { merge: true });
   };
-
-  // db.collection('schedules').doc('3IwLuJlxz3Pl4QLpvpwx').set(data);
 
   return (
     <div>
-      <form method="POST" action="AddSchedules" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="title"

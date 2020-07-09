@@ -27,8 +27,11 @@ export const TimeSchedules = (props) => {
     fri: '金',
   };
 
-  const addSchedule = () => {
-    props.history.push('/AddSchedules');
+  const addSchedule = (time, day) => {
+    props.history.push({
+      pathname: '/AddSchedules',
+      state: { day: day, time: time },
+    });
   };
 
   if (!data) {
@@ -45,21 +48,26 @@ export const TimeSchedules = (props) => {
               <div>{days[day]}</div>
               <div>
                 {[...Array(5)].map((_, i) => {
+                  const time = i + 1;
                   return (
                     <div>
                       {data[day] ? (
-                        data[day].find((d) => d.time === i + 1) ? (
+                        data[day].find((d) => d.time === time) ? (
                           <ScheduleCard
-                            title={
-                              data[day].find((d) => d.time === i + 1).title
-                            }
-                            addSchedule={addSchedule}
+                            title={data[day].find((d) => d.time === time).title}
+                            addSchedule={() => addSchedule(time, day)}
                           />
                         ) : (
-                          <div className="blank" onClick={addSchedule}></div>
+                          <div
+                            className="blank"
+                            onClick={() => addSchedule(time, day)}
+                          ></div>
                         )
                       ) : (
-                        <div className="blank" onClick={addSchedule}></div>
+                        <div
+                          className="blank"
+                          onClick={() => addSchedule(time, day)}
+                        ></div>
                       )}
                     </div>
                   );

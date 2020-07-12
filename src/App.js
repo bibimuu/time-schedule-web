@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Link, Switch } from 'react-router-dom';
-import firebase from './config/firebase';
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
+
 import { TimeSchedules } from './pages/TimeSchedules/TimeSchedules.jsx';
 import { AddSchedules } from './pages/TimeSchedules/AddSchedules.jsx';
 import { Signup } from './pages/Signup';
+import { useAuth } from './useAuth';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [authUser, setAuthUser] = useState(); //ログインチェックが完了してるか
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      setAuthUser(user);
-      setLoading(false);
-    });
-
-    return unsubscribe;
-  }, []);
+  const { authUser, loading } = useAuth();
 
   if (loading) return <>Loading...</>;
 
@@ -27,6 +19,7 @@ function App() {
           <Switch>
             <Route path="/schedules" exact component={TimeSchedules} />
             <Route path="/AddSchedules" exact component={AddSchedules} />
+            <Redirect to="/schedules" />
           </Switch>
           <div>
             <Link to="/">homeへ</Link>

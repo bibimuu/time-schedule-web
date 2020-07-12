@@ -28,7 +28,6 @@ export const AddSchedules = ({
       history.push('/AddSchedules');
       return;
     }
-
     const db = firebase.firestore();
     db.collection('schedules')
       .doc('3IwLuJlxz3Pl4QLpvpwx')

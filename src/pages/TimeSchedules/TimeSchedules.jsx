@@ -11,7 +11,6 @@ export const TimeSchedules = (props) => {
   useEffect(() => {
     const getSchedules = async () => {
       const db = firebase.firestore();
-
       const docRef = db.collection('schedules').doc('3IwLuJlxz3Pl4QLpvpwx');
       const docSnapShot = await docRef.get();
       setData(docSnapShot.data());

@@ -13,7 +13,12 @@ function App() {
 
   return (
     <div className="App">
-      {!authUser && <Route path="/" exact component={Signup} />}
+      {!authUser && (
+        <Switch>
+          <Route path="/signup" exact component={Signup} />
+          <Redirect to="/signup" />
+        </Switch>
+      )}
       {authUser && (
         <>
           <Switch>
@@ -21,12 +26,6 @@ function App() {
             <Route path="/AddSchedules" exact component={AddSchedules} />
             <Redirect to="/schedules" />
           </Switch>
-          <div>
-            <Link to="/">homeへ</Link>
-          </div>
-          <div>
-            <Link to="/schedules">schedulesへ</Link>
-          </div>
         </>
       )}
     </div>

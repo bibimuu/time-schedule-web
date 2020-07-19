@@ -1,22 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../../config/firebase';
-import { Route, Link } from 'react-router-dom';
 
 import { ScheduleCard } from '../../components/SchedulesCard';
 import './style.css';
 
-export const TimeSchedules = (props) => {
+export const TimeSchedules = ({ history }) => {
   const [data, setData] = useState();
 
   useEffect(() => {
+    const db = firebase.firestore();
     const getSchedules = async () => {
-      const db = firebase.firestore();
       const docRef = db.collection('schedules').doc('3IwLuJlxz3Pl4QLpvpwx');
       const docSnapShot = await docRef.get();
       setData(docSnapShot.data());
     };
     getSchedules();
   }, []);
+
+  const logout = () => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        console.log('ログアウトしました');
+        // history.push('/');
+      })
+      .catch((error) => {
+        console.log(`ログアウト時にエラーが発生しました (${error})`);
+      });
+    // firebase.auth().onAuthStateChanged((user) => {
+    //   firebase
+    //     .auth()
+    //     .signOut()
+    //     .then(() => {
+    //       console.log('ログアウトしました');
+    //       history.push('/');
+    //     })
+    //     .catch((error) => {
+    //       console.log(`ログアウト時にエラーが発生しました (${error})`);
+    //     });
+    // });
+  };
 
   const days = {
     mon: '月',
@@ -27,7 +51,7 @@ export const TimeSchedules = (props) => {
   };
 
   const addSchedule = (time, day) => {
-    props.history.push({
+    history.push({
       pathname: '/AddSchedules',
       state: { day: day, time: time },
     });
@@ -76,6 +100,7 @@ export const TimeSchedules = (props) => {
           );
         })}
       </div>
+      <button onClick={logout}>ログアウト</button>
     </div>
   );
 };

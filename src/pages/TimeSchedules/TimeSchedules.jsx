@@ -23,23 +23,10 @@ export const TimeSchedules = ({ history }) => {
       .signOut()
       .then(() => {
         console.log('ログアウトしました');
-        // history.push('/');
       })
       .catch((error) => {
         console.log(`ログアウト時にエラーが発生しました (${error})`);
       });
-    // firebase.auth().onAuthStateChanged((user) => {
-    //   firebase
-    //     .auth()
-    //     .signOut()
-    //     .then(() => {
-    //       console.log('ログアウトしました');
-    //       history.push('/');
-    //     })
-    //     .catch((error) => {
-    //       console.log(`ログアウト時にエラーが発生しました (${error})`);
-    //     });
-    // });
   };
 
   const days = {

@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
+import { InputBox } from '../../components/InputBox';
+import { InputButton } from '../../components/InputButton';
 import firebase from '../../config/firebase';
 import './style.css';
 
@@ -43,24 +46,23 @@ export const AddSchedules = ({
         },
         { merge: true }
       );
+    history.push('/schedules');
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+        <InputBox
           placeholder="title"
           value={title}
           onChange={titleHandleChange}
         />
-        <input
-          type="text"
+        <InputBox
           placeholder="teacher"
           value={teacher}
           onChange={teacherHandleChange}
         />
-        <input type="submit" value="Submit" />
+        <InputButton value="登録" />
       </form>
     </div>
   );

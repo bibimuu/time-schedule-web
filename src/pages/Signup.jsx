@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+
+import { InputBox } from '../components/InputBox';
+import { InputButton } from '../components/InputButton';
 import firebase from '../config/firebase';
 // import './style.css';
-import { Redirect } from 'react-router-dom';
 
-export const Signup = ({ history }) => {
+export const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [changeButton, setChangeButton] = useState(true);
 
   const emailHandleChange = (event) => {
     setEmail(event.target.value);
@@ -42,25 +45,35 @@ export const Signup = ({ history }) => {
       });
   };
 
+  const toggleButton = () => {
+    setChangeButton(!changeButton);
+  };
+
   return (
     <>
-      <div className="App">サインアップ</div>
       <form>
-        <input
-          type="text"
+        <InputBox
           placeholder="email"
           value={email}
           onChange={emailHandleChange}
         />
-        <input
-          type="text"
+        <InputBox
           placeholder="password"
           value={password}
           onChange={passwordHandleChange}
         />
-        <input type="submit" value="Signup" onClick={handleSignup} />
-        <input type="submit" value="Login" onClick={handleLogin} />
+
+        {changeButton && (
+          <InputButton value="サインアップ" onClick={handleSignup} />
+        )}
+        {!changeButton && (
+          <InputButton value="ログイン" onClick={handleLogin} />
+        )}
       </form>
+
+      <button onClick={toggleButton}>
+        {changeButton ? 'ログイン画面へ' : 'サインアップ画面へ'}
+      </button>
     </>
   );
 };

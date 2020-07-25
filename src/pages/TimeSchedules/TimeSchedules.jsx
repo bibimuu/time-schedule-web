@@ -6,6 +6,7 @@ import './style.css';
 
 export const TimeSchedules = ({ history }) => {
   const [data, setData] = useState();
+  const [schedulesCount, setSchedulesCount] = useState(5);
 
   useEffect(() => {
     const db = firebase.firestore();
@@ -52,12 +53,20 @@ export const TimeSchedules = ({ history }) => {
     <div>
       <h1>時間割りページ</h1>
       <div className="schedulesContainer">
+        <div>
+          {[...Array(schedulesCount + 1)].map((_, i) => {
+            const showTime = i;
+            if (showTime === 0) return <div className="blank"></div>;
+
+            return <div>{showTime}</div>;
+          })}
+        </div>
         {Object.keys(days).map((day) => {
           return (
             <div>
               <div>{days[day]}</div>
               <div>
-                {[...Array(5)].map((_, i) => {
+                {[...Array(schedulesCount)].map((_, i) => {
                   const time = i + 1;
                   return (
                     <div>

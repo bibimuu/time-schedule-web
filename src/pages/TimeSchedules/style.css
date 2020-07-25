@@ -6,7 +6,7 @@
 }
 
 .schedulesContainer {
-  background-color: red;
+  border: solid red 1px;
   display: flex;
   justify-content: space-around;
   width: 500px;
@@ -14,9 +14,11 @@
 
 .schedulesCard {
   background-color: rgb(255, 255, 255);
+  border: solid red 1px;
 }
 
 .blank {
   height: 20px;
   width: 20px;
+  border: solid red 1px;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { InputBox } from '../../components/InputBox';
@@ -7,22 +7,12 @@ import firebase from '../../config/firebase';
 // import './style.css';
 
 export const Login = ({ history }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const { handleSubmit, register, errors } = useForm();
 
-  const emailHandleChange = (event) => {
-    setEmail(event.target.value);
-  };
-  const passwordHandleChange = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  const handleLogin = async (data) => {
     await firebase
       .auth()
-      .signInWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(data.loginEmail, data.loginPassword)
       .catch((error) => {
         alert(error.code, error.message);
       });
@@ -30,11 +20,9 @@ export const Login = ({ history }) => {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit(handleLogin)}>
         <InputBox
           placeholder="email"
-          value={email}
-          onChange={emailHandleChange}
           register={register({ required: true, maxLength: 30 })}
           name="loginEmail"
         />
@@ -43,8 +31,6 @@ export const Login = ({ history }) => {
         {errors.loginEmail?.type === 'maxLength' && '最大30文字までです。'}
         <InputBox
           placeholder="password"
-          value={password}
-          onChange={passwordHandleChange}
           register={register({ required: true, maxLength: 20, minLength: 7 })}
           name="loginPassword"
         />
@@ -52,7 +38,7 @@ export const Login = ({ history }) => {
           'パスワードが未入力です。'}
         {errors.loginPassword?.type === 'maxLength' && '最大20文字までです。'}
 
-        <InputButton value="ログイン" onClick={handleLogin} />
+        <InputButton value="ログイン" />
       </form>
 
       <button onClick={() => history.push('./signup')}>

@@ -4,16 +4,38 @@ import firebase from '../../config/firebase';
 import { ScheduleCard } from '../../components/SchedulesCard';
 import './style.css';
 
-export const TimeSchedules = ({ history }) => {
-  const [data, setData] = useState();
+export const TimeSchedules = ({ history, authUser }) => {
+  const [data, setData] = useState(null);
   const [schedulesCount, setSchedulesCount] = useState(5);
-
+  console.log(authUser.uid);
   useEffect(() => {
     const db = firebase.firestore();
     const getSchedules = async () => {
-      const docRef = db.collection('schedules').doc('3IwLuJlxz3Pl4QLpvpwx');
-      const docSnapShot = await docRef.get();
-      setData(docSnapShot.data());
+      // userドキュメントのIdを取得
+      const userQuery = db.collection('users').where('uid', '==', authUser.uid);
+      const userQuerySnapshot = await userQuery.get();
+      if (userQuerySnapshot.docs.length !== 1) {
+        throw new Error('failed to fetch valid users count');
+      }
+      const userId = userQuerySnapshot.docs[0].id;
+
+      // userドキュメントのIdを使って該当するscheduleドキュメントを取得
+      const scheduleQuery = db
+        .collection('schedules')
+        .where('userId', '==', userId);
+
+      const scheduleQuerySnapshot = await scheduleQuery.get();
+
+      if (scheduleQuerySnapshot.docs.length === 0) {
+        setData({});
+        return; // 時間割り未登録のユーザーの場合
+      }
+      if (scheduleQuerySnapshot.docs.length > 1) {
+        throw new Error('failed to fetch valid schedules count');
+      }
+
+      const scheduleDocData = scheduleQuerySnapshot.docs[0];
+      setData({ ...scheduleDocData.data(), id: scheduleDocData.id });
     };
     getSchedules();
   }, []);
@@ -45,8 +67,8 @@ export const TimeSchedules = ({ history }) => {
     });
   };
 
-  if (!data) {
-    return <>loading</>;
+  if (data === null) {
+    return <>loading schedules</>;
   }
 
   return (

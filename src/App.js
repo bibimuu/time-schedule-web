@@ -10,7 +10,7 @@ import { useAuth } from './useAuth';
 function App() {
   const { authUser, loading } = useAuth();
 
-  if (loading) return <>Loading...</>;
+  if (loading) return <>Loading auth user...</>;
 
   return (
     <div className="App">
@@ -18,13 +18,17 @@ function App() {
         <Switch>
           <Route path="/signup" exact component={Signup} />
           <Route path="/login" exact component={Login} />
-          {/* <Redirect to="/signup" /> */}
+          <Redirect to="/signup" />
         </Switch>
       )}
       {authUser && (
         <>
           <Switch>
-            <Route path="/schedules" exact component={TimeSchedules} />
+            <Route
+              path="/schedules"
+              exact
+              render={() => <TimeSchedules authUser={authUser} />}
+            />
             <Route path="/AddSchedules" exact component={AddSchedules} />
             <Redirect to="/schedules" />
           </Switch>

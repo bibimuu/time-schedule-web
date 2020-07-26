@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
 import { InputBox } from '../../components/InputBox';
@@ -12,28 +12,9 @@ export const AddSchedules = ({
   },
   history,
 }) => {
-  const [title, setTitle] = useState('');
-  const [teacher, setTeacher] = useState('');
-  const [classRoom, setClassRoom] = useState('');
   const { handleSubmit, register, errors } = useForm();
 
-  const titleHandleChange = (event) => {
-    setTitle(event.target.value);
-  };
-  const teacherHandleChange = (event) => {
-    setTeacher(event.target.value);
-  };
-  const classHandleChange = (event) => {
-    setClassRoom(event.target.value);
-  };
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if (title === '' || teacher === '' || classRoom === '') {
-      alert('教科を入力してください');
-      history.push('/AddSchedules');
-      return;
-    }
+  const onSubmit = (data) => {
     const db = firebase.firestore();
     db.collection('schedules')
       .doc('3IwLuJlxz3Pl4QLpvpwx')
@@ -41,10 +22,10 @@ export const AddSchedules = ({
         {
           [day]: [
             {
-              title: title,
-              teacher: teacher,
+              title: data.title,
+              teacher: data.teacher,
               time: time,
-              classRoom: classRoom,
+              classRoom: data.classRoom,
             },
           ],
         },
@@ -52,31 +33,25 @@ export const AddSchedules = ({
       );
     history.push('/schedules');
   };
-  console.log(errors);
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputBox
           placeholder="title"
-          value={title}
-          onChange={titleHandleChange}
-          register={register({ required: true, maxLength: 20 })}
+          register={register({ required: true, maxLength: 30 })}
           name="title"
         />
         {errors.title?.type === 'required' && 'クラス名は、必須項目です。'}
-        {errors.title?.type === 'maxLength' && '最大20文字までです。'}
+        {errors.title?.type === 'maxLength' && '最大30文字までです。'}
         <InputBox
           placeholder="teacher"
-          value={teacher}
-          onChange={teacherHandleChange}
           register={register({ maxLength: 15 })}
           name="teacher"
         />
         {errors.teacher?.type === 'maxLength' && '最大15文字までです。'}
         <InputBox
           placeholder="classRoom"
-          value={classRoom}
-          onChange={classHandleChange}
           register={register({ maxLength: 10 })}
           name="classRoom"
         />

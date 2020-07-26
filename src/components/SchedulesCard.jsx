@@ -1,15 +1,24 @@
 import React from 'react';
 import '../pages/TimeSchedules/style.css';
 
-export const ScheduleCard = (props) => {
+export const ScheduleCard = ({
+  time,
+  day,
+  title,
+  addSchedule,
+  classRoom,
+  teacher,
+}) => {
   return (
     <div
       className="schedulesCard"
       onClick={() => {
-        props.addSchedule(props.time, props.day);
+        addSchedule(time, day, classRoom);
       }}
     >
-      <div>{props.title}</div>
+      <div>
+        {title} {classRoom} {teacher}
+      </div>
     </div>
   );
 };

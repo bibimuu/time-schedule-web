@@ -13,6 +13,7 @@ export const AddSchedules = ({
 }) => {
   const [title, setTitle] = useState('');
   const [teacher, setTeacher] = useState('');
+  const [classRoom, setClassRoom] = useState('');
 
   // const day = props.location.state.day;
   // const time = props.location.state.time;
@@ -23,10 +24,13 @@ export const AddSchedules = ({
   const teacherHandleChange = (event) => {
     setTeacher(event.target.value);
   };
+  const classHandleChange = (event) => {
+    setClassRoom(event.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title === '' || teacher === '') {
+    if (title === '' || teacher === '' || classRoom === '') {
       alert('教科を入力してください');
       history.push('/AddSchedules');
       return;
@@ -41,6 +45,7 @@ export const AddSchedules = ({
               title: title,
               teacher: teacher,
               time: time,
+              classRoom: classRoom,
             },
           ],
         },
@@ -61,6 +66,11 @@ export const AddSchedules = ({
           placeholder="teacher"
           value={teacher}
           onChange={teacherHandleChange}
+        />
+        <InputBox
+          placeholder="class"
+          value={classRoom}
+          onChange={classHandleChange}
         />
         <InputButton value="登録" />
       </form>

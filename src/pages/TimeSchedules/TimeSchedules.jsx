@@ -74,6 +74,12 @@ export const TimeSchedules = ({ history }) => {
                         data[day].find((d) => d.time === time) ? (
                           <ScheduleCard
                             title={data[day].find((d) => d.time === time).title}
+                            classRoom={
+                              data[day].find((d) => d.time === time).classRoom
+                            }
+                            teacher={
+                              data[day].find((d) => d.time === time).teacher
+                            }
                             addSchedule={() => addSchedule(time, day)}
                           />
                         ) : (

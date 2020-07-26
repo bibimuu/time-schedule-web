@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { TimeSchedules } from './pages/TimeSchedules/TimeSchedules.jsx';
 import { AddSchedules } from './pages/TimeSchedules/AddSchedules.jsx';
-import { Signup } from './pages/Signup';
+import { Signup } from './pages/Auth/Signup';
+import { Login } from './pages/Auth/Login';
 import { useAuth } from './useAuth';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
       {!authUser && (
         <Switch>
           <Route path="/signup" exact component={Signup} />
-          <Redirect to="/signup" />
+          <Route path="/login" exact component={Login} />
+          {/* <Redirect to="/signup" /> */}
         </Switch>
       )}
       {authUser && (

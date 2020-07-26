@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import firebase from './config/firebase';
 
 export const useAuth = () => {

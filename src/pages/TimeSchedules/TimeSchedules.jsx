@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router';
 import firebase from '../../config/firebase';
 
 import { ScheduleCard } from '../../components/SchedulesCard';
 import './style.css';
 
-export const TimeSchedules = ({ history, authUser }) => {
+const TimeSchedules = ({ history, authUser }) => {
   const [data, setData] = useState(null);
   const [schedulesCount, setSchedulesCount] = useState(5);
-  console.log(authUser.uid);
   useEffect(() => {
     const db = firebase.firestore();
     const getSchedules = async () => {
@@ -26,10 +26,14 @@ export const TimeSchedules = ({ history, authUser }) => {
 
       const scheduleQuerySnapshot = await scheduleQuery.get();
 
+      // 時間割り未登録のユーザーの場合
       if (scheduleQuerySnapshot.docs.length === 0) {
-        setData({});
-        return; // 時間割り未登録のユーザーの場合
+        db.collection('schedules').doc().set({
+          userId: userId,
+        });
+        return;
       }
+
       if (scheduleQuerySnapshot.docs.length > 1) {
         throw new Error('failed to fetch valid schedules count');
       }
@@ -60,10 +64,11 @@ export const TimeSchedules = ({ history, authUser }) => {
     fri: '金',
   };
 
-  const addSchedule = (time, day) => {
+  console.log(data);
+  const addSchedule = async (time, day) => {
     history.push({
       pathname: '/AddSchedules',
-      state: { day: day, time: time },
+      state: { day: day, time: time, userId: data.id },
     });
   };
 
@@ -128,3 +133,5 @@ export const TimeSchedules = ({ history, authUser }) => {
     </div>
   );
 };
+
+export default withRouter(TimeSchedules);

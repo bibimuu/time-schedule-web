@@ -8,7 +8,7 @@ import './style.css';
 
 export const AddSchedules = ({
   location: {
-    state: { day, time },
+    state: { day, time, userId },
   },
   history,
 }) => {
@@ -17,7 +17,7 @@ export const AddSchedules = ({
   const onSubmit = (data) => {
     const db = firebase.firestore();
     db.collection('schedules')
-      .doc('3IwLuJlxz3Pl4QLpvpwx')
+      .doc(userId)
       .set(
         {
           [day]: [

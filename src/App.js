@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import { TimeSchedules } from './pages/TimeSchedules/TimeSchedules.jsx';
+import TimeSchedules from './pages/TimeSchedules/TimeSchedules.jsx';
 import { AddSchedules } from './pages/TimeSchedules/AddSchedules.jsx';
 import { Signup } from './pages/Auth/Signup';
 import { Login } from './pages/Auth/Login';

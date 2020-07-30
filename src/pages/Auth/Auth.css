@@ -1,0 +1,13 @@
+.backgroundContainer {
+  height: 100vh;
+  width: 100vw;
+}
+.background {
+  background-image: url('../../asset/signIn.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}

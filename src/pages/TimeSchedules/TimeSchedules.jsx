@@ -42,7 +42,7 @@ const TimeSchedules = ({ history, authUser }) => {
       setData({ ...scheduleDocData.data(), id: scheduleDocData.id });
     };
     getSchedules();
-  }, []);
+  }, [authUser.uid]);
 
   const logout = () => {
     firebase
@@ -64,7 +64,6 @@ const TimeSchedules = ({ history, authUser }) => {
     fri: '金',
   };
 
-  console.log(data);
   const addSchedule = async (time, day) => {
     history.push({
       pathname: '/AddSchedules',

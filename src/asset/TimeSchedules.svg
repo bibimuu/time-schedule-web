@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-時間割画面">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="時間割画面" clip-path="url(#clip-時間割画面)">
+    <rect width="1920" height="1080" fill="#fff"/>
+    <g id="長方形_17" data-name="長方形 17" transform="translate(161 343)" fill="#79bf36" stroke="#707070" stroke-width="1">
+      <rect width="238" height="316" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="315" fill="none"/>
+    </g>
+    <g id="長方形_22" data-name="長方形 22" transform="translate(770 732)" fill="#f01376" stroke="#707070" stroke-width="1">
+      <rect width="238" height="316" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="315" fill="none"/>
+    </g>
+    <g id="長方形_29" data-name="長方形 29" transform="translate(1567 278)" fill="#f05e3e" stroke="#707070" stroke-width="1">
+      <rect width="238" height="316" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="315" fill="none"/>
+    </g>
+    <g id="長方形_31" data-name="長方形 31" transform="translate(1567 634)" fill="#1db2d9" stroke="#707070" stroke-width="1">
+      <rect width="180" height="226" stroke="none"/>
+      <rect x="0.5" y="0.5" width="179" height="225" fill="none"/>
+    </g>
+    <g id="長方形_26" data-name="長方形 26" transform="translate(568 32)" fill="#f1bf2b" stroke="#707070" stroke-width="1">
+      <rect width="440" height="224" stroke="none"/>
+      <rect x="0.5" y="0.5" width="439" height="223" fill="none"/>
+    </g>
+    <g id="長方形_25" data-name="長方形 25" transform="translate(1045 1007)" fill="#79bf36" stroke="#707070" stroke-width="1">
+      <rect width="97" height="73" stroke="none"/>
+      <rect x="0.5" y="0.5" width="96" height="72" fill="none"/>
+    </g>
+    <g id="長方形_23" data-name="長方形 23" transform="translate(280)" fill="#f05e3e" stroke="#707070" stroke-width="1">
+      <rect width="238" height="63" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="62" fill="none"/>
+    </g>
+    <g id="長方形_27" data-name="長方形 27" transform="translate(1050)" fill="#1db2d9" stroke="#707070" stroke-width="1">
+      <rect width="238" height="63" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="62" fill="none"/>
+    </g>
+    <g id="長方形_28" data-name="長方形 28" transform="translate(1338)" fill="#f05e3e" stroke="#707070" stroke-width="1">
+      <rect width="304" height="63" stroke="none"/>
+      <rect x="0.5" y="0.5" width="303" height="62" fill="none"/>
+    </g>
+    <g id="長方形_19" data-name="長方形 19" fill="#1db2d9" stroke="#707070" stroke-width="1">
+      <rect width="238" height="305" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="304" fill="none"/>
+    </g>
+    <g id="長方形_18" data-name="長方形 18" transform="translate(0 697)" fill="#f05e3e" stroke="#707070" stroke-width="1">
+      <rect width="238" height="383" stroke="none"/>
+      <rect x="0.5" y="0.5" width="237" height="382" fill="none"/>
+    </g>
+    <g id="長方形_20" data-name="長方形 20" transform="translate(0 343)" fill="#f1bf2b" stroke="#707070" stroke-width="1">
+      <rect width="119" height="316" stroke="none"/>
+      <rect x="0.5" y="0.5" width="118" height="315" fill="none"/>
+    </g>
+    <g id="長方形_30" data-name="長方形 30" transform="translate(1847 278)" fill="#f01376" stroke="#707070" stroke-width="1">
+      <rect width="73" height="316" stroke="none"/>
+      <rect x="0.5" y="0.5" width="72" height="315" fill="none"/>
+    </g>
+    <g id="長方形_32" data-name="長方形 32" transform="translate(1788 634)" fill="#f1bf2b" stroke="#707070" stroke-width="1">
+      <rect width="132" height="316" stroke="none"/>
+      <rect x="0.5" y="0.5" width="131" height="315" fill="none"/>
+    </g>
+    <g id="長方形_21" data-name="長方形 21" transform="translate(280 992)" fill="#f1bf2b" stroke="#707070" stroke-width="1">
+      <rect width="453" height="88" stroke="none"/>
+      <rect x="0.5" y="0.5" width="452" height="87" fill="none"/>
+    </g>
+    <g id="長方形_24" data-name="長方形 24" transform="translate(1683)" fill="#79bf36" stroke="#707070" stroke-width="1">
+      <rect width="237" height="238" stroke="none"/>
+      <rect x="0.5" y="0.5" width="236" height="237" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -41,19 +41,22 @@ export const AddSchedules = ({
           placeholder="title"
           register={register({ required: true, maxLength: 30 })}
           name="title"
+          type="text"
         />
         {errors.title?.type === 'required' && 'クラス名は、必須項目です。'}
         {errors.title?.type === 'maxLength' && '最大30文字までです。'}
-        <InputBox
+        {/* <InputBox
           placeholder="teacher"
           register={register({ maxLength: 15 })}
           name="teacher"
-        />
-        {errors.teacher?.type === 'maxLength' && '最大15文字までです。'}
+          type="text"
+        /> */}
+        {/* {errors.teacher?.type === 'maxLength' && '最大15文字までです。'} */}
         <InputBox
           placeholder="classRoom"
           register={register({ maxLength: 10 })}
           name="classRoom"
+          ype="text"
         />
         {errors.classRoom?.type === 'maxLength' && '最大10文字までです。'}
         <InputButton value="登録" />

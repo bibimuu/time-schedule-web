@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap'); */
+
+body {
+  font-family: 'Kosugi Maru', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #707070;
+  font-size: 20px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

@@ -31,6 +31,9 @@ const TimeSchedules = ({ history, authUser }) => {
         db.collection('schedules').doc().set({
           userId: userId,
         });
+        const scheduleQuerySnapshot = await scheduleQuery.get();
+        const scheduleDocData = scheduleQuerySnapshot.docs[0];
+        setData({ ...scheduleDocData.data(), id: scheduleDocData.id });
         return;
       }
 

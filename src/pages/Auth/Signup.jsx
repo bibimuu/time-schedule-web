@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 
 import { InputBox } from '../../components/InputBox';
 import { InputButton } from '../../components/InputButton';
+import { Error } from '../../components/Error';
 import firebase from '../../config/firebase';
-import { ReactComponent as Background } from '../../asset/signIn.svg';
 import './Auth.css';
 
 export const Signup = ({ history }) => {
@@ -32,32 +32,62 @@ export const Signup = ({ history }) => {
 
   return (
     <div className="backgroundContainer">
-      <div className="background">
+      <div className="background ">
         <form onSubmit={handleSubmit(handleSignup)}>
-          <InputBox
-            placeholder="email"
-            register={register({ required: true, maxLength: 30 })}
-            name="signupEmail"
-          />
-          {errors.signupEmail?.type === 'required' &&
-            'メールアドレスが未入力です。'}
-          {errors.signupEmail?.type === 'maxLength' && '最大30文字までです。'}
-          <InputBox
-            placeholder="password"
-            register={register({ required: true, maxLength: 20, minLength: 7 })}
-            name="signupPassword"
-          />
-          {errors.signupPassword?.type === 'required' &&
-            'パスワードが未入力です。'}
-          {errors.signupPassword?.type === 'maxLength' &&
-            '最大20文字までです。'}
-          {errors.signupPassword?.type === 'minLength' &&
-            '７文字以上で登録してください。'}
-
-          <InputButton value="サインアップ" />
+          <div className="formContainer">
+            <div className="inputBoxContainer">
+              <InputBox
+                register={register({ required: true, maxLength: 30 })}
+                name="signupEmail"
+                type="email"
+                color="#ffffff"
+                label="メールアドレス"
+              />
+              <div className="errorContainer">
+                {errors.signupEmail?.type === 'required' && (
+                  <Error>メールアドレスが入力されてないよ</Error>
+                )}
+                {errors.signupEmail?.type === 'maxLength' && (
+                  <Error>最大30文字までだよ</Error>
+                )}
+              </div>
+            </div>
+            <div className="inputBoxContainer">
+              <InputBox
+                register={register({
+                  required: true,
+                  maxLength: 20,
+                  minLength: 7,
+                })}
+                name="signupPassword"
+                type="password"
+                label="パスワード"
+              />
+              <div className="errorContainer">
+                {errors.signupPassword?.type === 'required' && (
+                  <Error>パスワードが入力されてないよ</Error>
+                )}
+                {errors.signupPassword?.type === 'maxLength' && (
+                  <Error>最大20文字までだよ</Error>
+                )}
+                {errors.signupPassword?.type === 'minLength' && (
+                  <Error>７文字以上で登録してね</Error>
+                )}
+              </div>
+            </div>
+            <div className="InputButtonContainer">
+              <InputButton value="サインアップ" />
+            </div>
+          </div>
         </form>
-
-        <button onClick={() => history.push('./login')}>ログイン画面へ</button>
+        <div className="btnContainer">
+          <button
+            className="signInChangeBtn"
+            onClick={() => history.push('./login')}
+          >
+            ログイン画面へ
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../pages/TimeSchedules/style.css';
+import './SchedulesCard.css';
 
 export const ScheduleCard = ({
   time,
@@ -16,8 +16,9 @@ export const ScheduleCard = ({
         addSchedule(time, day, classRoom);
       }}
     >
-      <div>
-        {title} {classRoom} {teacher}
+      <div className="contentContainer">
+        <div>{title}</div>
+        <div>{classRoom}</div>
       </div>
     </div>
   );

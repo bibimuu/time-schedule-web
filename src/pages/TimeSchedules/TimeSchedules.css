@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap');
+
+.timeSchedulesBackgroundContainer {
+  height: 100vh;
+  width: 100vw;
+}
+
+.schedules {
+  display: flex;
+  justify-content: space-around;
+  width: 700px;
+}
+
+.oneDaySchedule {
+  height: 415px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* overflow: hidden; */
+}
+
+.timeSchedulesBackground {
+  background-image: url('../../asset/TimeSchedules.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schedulesContainer {
+  box-shadow: 0 0.5px 2px -1px rgb(133, 129, 129);
+  background: linear-gradient(#1db2d9, #80d0c7);
+  width: 500px;
+  height: 550px;
+  width: 850px;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.timeAndSchedulesContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.timeContainer {
+  border-radius: 100px;
+  font-family: 'Dosis', sans-serif;
+  background-color: #ffffff;
+  height: 400px;
+  width: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 30px;
+}
+
+.number:first-child {
+  margin-top: 5px;
+}
+
+.number {
+  margin: 20px 0;
+}
+
+.number:last-child {
+  margin-bottom: 4px;
+}
+
+.daysContainer {
+  display: flex;
+  justify-content: space-evenly;
+  height: 12%;
+  background-color: #ffffff;
+  width: 85%;
+  border-radius: 100px;
+  margin: 0px 0px 30px 100px;
+}
+
+.dayContainer {
+  font-size: 30px;
+  padding-top: 10px;
+  margin: 0 56px;
+}

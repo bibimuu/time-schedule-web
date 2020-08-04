@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { InputBox } from '../../components/InputBox';
 import { InputButton } from '../../components/InputButton';
 import firebase from '../../config/firebase';
-import './style.css';
+import './TimeSchedules.css';
 
 export const AddSchedules = ({
   location: {

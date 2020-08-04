@@ -3,11 +3,13 @@ import { withRouter } from 'react-router';
 import firebase from '../../config/firebase';
 
 import { ScheduleCard } from '../../components/SchedulesCard';
-import './style.css';
+import { Blank } from '../../components/Blank';
+import './TimeSchedules.css';
 
 const TimeSchedules = ({ history, authUser }) => {
   const [data, setData] = useState(null);
   const [schedulesCount, setSchedulesCount] = useState(5);
+
   useEffect(() => {
     const db = firebase.firestore();
     const getSchedules = async () => {
@@ -79,59 +81,74 @@ const TimeSchedules = ({ history, authUser }) => {
   }
 
   return (
-    <div>
-      <h1>時間割りページ</h1>
-      <div className="schedulesContainer">
-        <div>
-          {[...Array(schedulesCount + 1)].map((_, i) => {
-            const showTime = i;
-            if (showTime === 0) return <div className="blank"></div>;
-
-            return <div>{showTime}</div>;
-          })}
-        </div>
-        {Object.keys(days).map((day) => {
-          return (
-            <div>
-              <div>{days[day]}</div>
-              <div>
-                {[...Array(schedulesCount)].map((_, i) => {
-                  const time = i + 1;
-                  return (
-                    <div>
-                      {data[day] ? (
-                        data[day].find((d) => d.time === time) ? (
-                          <ScheduleCard
-                            title={data[day].find((d) => d.time === time).title}
-                            classRoom={
-                              data[day].find((d) => d.time === time).classRoom
-                            }
-                            teacher={
-                              data[day].find((d) => d.time === time).teacher
-                            }
-                            addSchedule={() => addSchedule(time, day)}
-                          />
-                        ) : (
-                          <div
-                            className="blank"
-                            onClick={() => addSchedule(time, day)}
-                          ></div>
-                        )
-                      ) : (
-                        <div
-                          className="blank"
-                          onClick={() => addSchedule(time, day)}
-                        ></div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+    <div className="timeSchedulesBackgroundContainer">
+      <div className="timeSchedulesBackground">
+        <div className="schedulesContainer">
+          <div className="daysContainer">
+            <div className="dayContainer">月</div>
+            <div className="dayContainer">火</div>
+            <div className="dayContainer">水</div>
+            <div className="dayContainer">木</div>
+            <div className="dayContainer">金</div>
+          </div>
+          <div className="timeAndSchedulesContainer">
+            <div className="timeContainer">
+              {[...Array(schedulesCount + 1)].map((_, i) => {
+                const showTime = i;
+                if (showTime === 0) return;
+                return <div className="number">{showTime}</div>;
+              })}
             </div>
-          );
-        })}
+            <div className="schedules">
+              {Object.keys(days).map((day) => {
+                return (
+                  <div className="oneDaySchedule">
+                    {[...Array(schedulesCount)].map((_, i) => {
+                      const time = i + 1;
+                      return (
+                        <div>
+                          {data[day] ? (
+                            data[day].find((d) => d.time === time) ? (
+                              <ScheduleCard
+                                title={
+                                  data[day].find((d) => d.time === time).title
+                                }
+                                classRoom={
+                                  data[day].find((d) => d.time === time)
+                                    .classRoom
+                                }
+                                // teacher={
+                                //   data[day].find((d) => d.time === time).teacher
+                                // }
+                                addSchedule={() => addSchedule(time, day)}
+                              />
+                            ) : (
+                              <Blank
+                                className="blank"
+                                addSchedule={() => addSchedule(time, day)}
+                              />
+                            )
+                          ) : (
+                            <Blank
+                              className="blank"
+                              onClick={() => addSchedule(time, day)}
+                            />
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <div className="btnContainer">
+          <button className="textButton" onClick={logout}>
+            ログアウト→
+          </button>
+        </div>
       </div>
-      <button onClick={logout}>ログアウト</button>
     </div>
   );
 };

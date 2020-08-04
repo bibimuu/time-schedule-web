@@ -39,7 +39,7 @@
   display: block;
 }
 
-.signInChangeBtn {
+.textButton {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -50,7 +50,7 @@
   transition-duration: 0.3s;
 }
 
-.signInChangeBtn:hover {
+.textButton:hover {
   color: #79bf36;
   transition-duration: 0.3s;
 }

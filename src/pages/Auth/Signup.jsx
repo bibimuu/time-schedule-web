@@ -82,10 +82,10 @@ export const Signup = ({ history }) => {
         </form>
         <div className="btnContainer">
           <button
-            className="signInChangeBtn"
+            className="textButton"
             onClick={() => history.push('./login')}
           >
-            ログイン画面へ
+            ログインはこっちだよ→
           </button>
         </div>
       </div>

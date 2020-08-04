@@ -8,7 +8,7 @@
   margin: 15px 0 5px 0;
   border: none;
   outline: none;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: transparent;
   transition-duration: 0.5s;
   padding: 5px 13px;
   font-size: 20px;
@@ -27,5 +27,5 @@ input:focus .inputBox {
   transition-duration: 0.5s;
   transition-property: width;
   box-shadow: 0px 0px 0px 5px #f1bf2b inset;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: transparent;
 }

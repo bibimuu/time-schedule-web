@@ -80,9 +80,9 @@ export const Signup = ({ history }) => {
             </div>
           </div>
         </form>
-        <div className="btnContainer">
+        <div className="btnChangeAuthContainer">
           <button
-            className="textButton"
+            className="changeAuth"
             onClick={() => history.push('./login')}
           >
             ログインはこっちだよ→

@@ -61,6 +61,10 @@ const TimeSchedules = ({ history, authUser }) => {
       });
   };
 
+  // const changeColor = () => {
+  //   document.getElementById('changeColor').classList.add('');
+  // };
+
   const days = {
     mon: '月',
     tue: '火',
@@ -143,7 +147,10 @@ const TimeSchedules = ({ history, authUser }) => {
             </div>
           </div>
         </div>
-        <div className="btnContainer">
+        <div className="btnTextButtonContainer">
+          <button className="textButton" id="changeColor">
+            色を変える→
+          </button>
           <button className="textButton" onClick={logout}>
             ログアウト→
           </button>

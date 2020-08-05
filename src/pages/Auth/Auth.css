@@ -32,14 +32,14 @@
   text-align: center;
 }
 
-.btnContainer {
+.btnChangeAuthContainer {
   position: absolute;
   top: 85%;
   left: 75%;
   display: block;
 }
 
-.textButton {
+.changeAuth {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -50,7 +50,7 @@
   transition-duration: 0.3s;
 }
 
-.textButton:hover {
+.changeAuth:hover {
   color: #79bf36;
   transition-duration: 0.3s;
 }

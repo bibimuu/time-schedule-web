@@ -21,7 +21,7 @@
   box-shadow: 0 0.5px 2px -1px rgb(133, 129, 129);
 }
 
-input:focus .inputBox {
+.inputBox:focus {
   border: none;
   width: 100%;
   transition-duration: 0.5s;

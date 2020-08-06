@@ -69,11 +69,6 @@ const TimeSchedules = ({ history, authUser }) => {
     }
   };
 
-  const changeColor = {
-    schedulesContainer: true,
-    backgroundNumber: { number },
-  };
-
   const days = {
     mon: '月',
     tue: '火',
@@ -93,10 +88,12 @@ const TimeSchedules = ({ history, authUser }) => {
     return <>loading schedules</>;
   }
 
+  const scheduleColorNumber = `scheduleColorNumber${number}`;
+
   return (
     <div className="timeSchedulesBackgroundContainer">
       <div className="timeSchedulesBackground">
-        <div className="schedulesContainer" id={'scheduleColorNumber' + number}>
+        <div className={`schedulesContainer ${scheduleColorNumber}`}>
           <div className="daysContainer">
             <div className="dayContainer">月</div>
             <div className="dayContainer">火</div>

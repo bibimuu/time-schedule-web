@@ -116,22 +116,22 @@
   transition-duration: 0.3s;
 }
 
-#scheduleColorNumber0 {
+.scheduleColorNumber0 {
   background: linear-gradient(#1db2d9, #80d0c7);
 }
 
-#scheduleColorNumber1 {
+.scheduleColorNumber1 {
   background: linear-gradient(#d9afd9, #97d9e1);
 }
-#scheduleColorNumber2 {
+.scheduleColorNumber2 {
   background: linear-gradient(#fad961, #f76b1c);
 }
-#scheduleColorNumber3 {
+.scheduleColorNumber3 {
   background: linear-gradient(#9face6, #74ebd5);
 }
-#scheduleColorNumber4 {
+.scheduleColorNumber4 {
   background: linear-gradient(#2dc859, #e7f122);
 }
-#scheduleColorNumber5 {
+.scheduleColorNumber5 {
   background: linear-gradient(#a9c9ff, #ffbbec);
 }

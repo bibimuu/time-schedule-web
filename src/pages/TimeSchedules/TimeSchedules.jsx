@@ -9,6 +9,7 @@ import './TimeSchedules.css';
 const TimeSchedules = ({ history, authUser }) => {
   const [data, setData] = useState(null);
   const [schedulesCount, setSchedulesCount] = useState(5);
+  const [number, setNumber] = useState(0);
 
   useEffect(() => {
     const db = firebase.firestore();
@@ -61,9 +62,17 @@ const TimeSchedules = ({ history, authUser }) => {
       });
   };
 
-  // const changeColor = () => {
-  //   document.getElementById('changeColor').classList.add('');
-  // };
+  const changeColorFunction = () => {
+    setNumber(number + 1);
+    if (number === 5) {
+      setNumber(0);
+    }
+  };
+
+  const changeColor = {
+    schedulesContainer: true,
+    backgroundNumber: { number },
+  };
 
   const days = {
     mon: '月',
@@ -87,7 +96,7 @@ const TimeSchedules = ({ history, authUser }) => {
   return (
     <div className="timeSchedulesBackgroundContainer">
       <div className="timeSchedulesBackground">
-        <div className="schedulesContainer">
+        <div className="schedulesContainer" id={'scheduleColorNumber' + number}>
           <div className="daysContainer">
             <div className="dayContainer">月</div>
             <div className="dayContainer">火</div>
@@ -148,7 +157,11 @@ const TimeSchedules = ({ history, authUser }) => {
           </div>
         </div>
         <div className="btnTextButtonContainer">
-          <button className="textButton" id="changeColor">
+          <button
+            className="textButton"
+            id="changeColor"
+            onClick={changeColorFunction}
+          >
             色を変える→
           </button>
           <button className="textButton" onClick={logout}>

@@ -34,7 +34,6 @@
 
 .schedulesContainer {
   box-shadow: 0 0.5px 2px -1px rgb(133, 129, 129);
-  background: linear-gradient(#1db2d9, #80d0c7);
   width: 500px;
   height: 550px;
   width: 850px;
@@ -59,6 +58,11 @@
   justify-content: space-evenly;
   font-size: 30px;
 }
+
+/* #sss {
+  color: red;
+  background: linear-gradient(#5cd91d, #80d0c7);
+} */
 
 .number:first-child {
   margin-top: 5px;
@@ -110,4 +114,24 @@
 .textButton:hover {
   color: #79bf36;
   transition-duration: 0.3s;
+}
+
+#scheduleColorNumber0 {
+  background: linear-gradient(#1db2d9, #80d0c7);
+}
+
+#scheduleColorNumber1 {
+  background: linear-gradient(#d9afd9, #97d9e1);
+}
+#scheduleColorNumber2 {
+  background: linear-gradient(#fad961, #f76b1c);
+}
+#scheduleColorNumber3 {
+  background: linear-gradient(#9face6, #74ebd5);
+}
+#scheduleColorNumber4 {
+  background: linear-gradient(#2dc859, #e7f122);
+}
+#scheduleColorNumber5 {
+  background: linear-gradient(#a9c9ff, #ffbbec);
 }

@@ -77,13 +77,6 @@ const TimeSchedules = ({ history, authUser }) => {
     fri: '金',
   };
 
-  const addSchedule = async (time, day) => {
-    history.push({
-      pathname: '/AddSchedules',
-      state: { day: day, time: time, userId: data.id },
-    });
-  };
-
   if (data === null) {
     return <>loading schedules</>;
   }
@@ -105,18 +98,24 @@ const TimeSchedules = ({ history, authUser }) => {
             <div className="timeContainer">
               {[...Array(schedulesCount + 1)].map((_, i) => {
                 const showTime = i;
-                if (showTime === 0) return;
-                return <div className="number">{showTime}</div>;
+                if (showTime === 0) {
+                  return;
+                }
+                return (
+                  <div key={i} className="number">
+                    {showTime}
+                  </div>
+                );
               })}
             </div>
             <div className="schedules">
               {Object.keys(days).map((day) => {
                 return (
-                  <div className="oneDaySchedule">
+                  <div key={day} className="oneDaySchedule">
                     {[...Array(schedulesCount)].map((_, i) => {
                       const time = i + 1;
                       return (
-                        <div>
+                        <div key={`${day}${time}`}>
                           {data[day] ? (
                             data[day].find((d) => d.time === time) ? (
                               <ScheduleCard
@@ -130,18 +129,25 @@ const TimeSchedules = ({ history, authUser }) => {
                                 // teacher={
                                 //   data[day].find((d) => d.time === time).teacher
                                 // }
-                                addSchedule={() => addSchedule(time, day)}
+
+                                day={day}
+                                time={time}
+                                userId={data.id}
                               />
                             ) : (
                               <Blank
                                 className="blank"
-                                addSchedule={() => addSchedule(time, day)}
+                                day={day}
+                                time={time}
+                                userId={data.id}
                               />
                             )
                           ) : (
                             <Blank
                               className="blank"
-                              onClick={() => addSchedule(time, day)}
+                              day={day}
+                              time={time}
+                              userId={data.id}
                             />
                           )}
                         </div>

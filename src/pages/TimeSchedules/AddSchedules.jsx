@@ -6,17 +6,13 @@ import { InputButton } from '../../components/InputButton';
 import firebase from '../../config/firebase';
 import './TimeSchedules.css';
 
-export const AddSchedules = ({
-  location: {
-    state: { day, time, userId },
-  },
-  history,
-}) => {
+export const AddSchedules = ({ day, time, userId, closeModal }) => {
   const { handleSubmit, register, errors } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const db = firebase.firestore();
-    db.collection('schedules')
+    await db
+      .collection('schedules')
       .doc(userId)
       .set(
         {
@@ -31,7 +27,6 @@ export const AddSchedules = ({
         },
         { merge: true }
       );
-    history.push('/schedules');
   };
 
   return (
@@ -54,9 +49,10 @@ export const AddSchedules = ({
         {/* {errors.teacher?.type === 'maxLength' && '最大15文字までです。'} */}
         <InputBox
           placeholder="classRoom"
-          register={register({ maxLength: 10 })}
+          register={register({ maxLength: 5 })}
           name="classRoom"
           type="text"
+          overlayClassName="overlay"
         />
         {errors.classRoom?.type === 'maxLength' && '最大5文字までです。'}
         <InputButton value="登録" />

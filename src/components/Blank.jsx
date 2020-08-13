@@ -5,9 +5,8 @@ import { AddSchedules } from '../pages/TimeSchedules/AddSchedules';
 import './Blank.css';
 import './ModalStyle.css';
 
-export const Blank = ({ children, time, day, classRoom, userId }) => {
+export const Blank = ({ children, time, day, classRoom, userId, dayData }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
-
   const openModal = () => {
     setIsOpen(true);
   };
@@ -36,6 +35,7 @@ export const Blank = ({ children, time, day, classRoom, userId }) => {
           time={time}
           userId={userId}
           closeModal={closeModal}
+          dayData={dayData}
         />
       </Modal>
     </>

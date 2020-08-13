@@ -6,27 +6,23 @@ import { InputButton } from '../../components/InputButton';
 import firebase from '../../config/firebase';
 import './TimeSchedules.css';
 
-export const AddSchedules = ({ day, time, userId, closeModal }) => {
+export const AddSchedules = ({ day, time, userId, closeModal, dayData }) => {
   const { handleSubmit, register, errors } = useForm();
-
   const onSubmit = async (data) => {
-    const db = firebase.firestore();
-    await db
-      .collection('schedules')
-      .doc(userId)
-      .set(
-        {
-          [day]: [
-            {
-              title: data.title,
-              // teacher: data.teacher,
-              time: time,
-              classRoom: data.classRoom,
-            },
-          ],
-        },
-        { merge: true }
-      );
+    // if (!dayData) {
+    //   dayData = {}
+    // }
+    // const newSchedule = dayData[day].splice(1,0, {
+    //   title: data.title,
+    //   // teacher: data.teacher,
+    //   time: time,
+    //   classRoom: data.classRoom,
+    // })
+    // const db = firebase.firestore();
+    // await db
+    //   .collection('schedules')
+    //   .doc(userId)
+    //   .set(newSchedule, {marge: true})
   };
 
   return (

@@ -1,6 +1,7 @@
 import React from 'react';
 import './InputBox.css';
 
+// TODO: destructuring
 export const InputBox = (props) => {
   return (
     <>
@@ -15,6 +16,7 @@ export const InputBox = (props) => {
           id={props.name}
           className="inputBox"
           style={{ color: props.color }}
+          defaultValue={props.defaultValue || ''}
         />
       </div>
       <div

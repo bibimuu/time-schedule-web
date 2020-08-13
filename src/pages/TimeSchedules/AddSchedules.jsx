@@ -6,23 +6,17 @@ import { InputButton } from '../../components/InputButton';
 import firebase from '../../config/firebase';
 import './TimeSchedules.css';
 
-export const AddSchedules = ({ day, time, userId, closeModal, dayData }) => {
+// NOTE: dayとtimeはscheduleがないときに新規登録するために使う
+export const AddSchedules = ({ schedule, day, time }) => {
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = async (data) => {
-    // if (!dayData) {
-    //   dayData = {}
-    // }
-    // const newSchedule = dayData[day].splice(1,0, {
-    //   title: data.title,
-    //   // teacher: data.teacher,
-    //   time: time,
-    //   classRoom: data.classRoom,
-    // })
-    // const db = firebase.firestore();
-    // await db
-    //   .collection('schedules')
-    //   .doc(userId)
-    //   .set(newSchedule, {marge: true})
+    const db = firebase.firestore()
+    if (schedule) {
+      // TODO: update
+    } else {
+      // TODO: create
+      // dayとtimeと入力内容をfirestoreにset
+    }
   };
 
   return (
@@ -33,6 +27,7 @@ export const AddSchedules = ({ day, time, userId, closeModal, dayData }) => {
           register={register({ required: true, maxLength: 30 })}
           name="title"
           type="text"
+          defaultValue={schedule && schedule.title}
         />
         {errors.title?.type === 'required' && 'クラス名は、必須項目です。'}
         {errors.title?.type === 'maxLength' && '最大5文字までです。'}

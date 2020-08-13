@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import firebase from '../../config/firebase';
-import { ScheduleCard } from '../../components/SchedulesCard';
-import { Blank } from '../../components/Blank';
+import { Schedule } from '../../components/Schedule';
 import './TimeSchedules.css';
 
 const TimeSchedules = ({ history, authUser }) => {
@@ -82,16 +81,7 @@ const TimeSchedules = ({ history, authUser }) => {
           {[1,2,3,4,5].map(i => {
             const schedule = mondayScheduleList.find(s => s.time === i)
             return (
-              <div>
-                {!schedule && <>登録なし</>}
-                {schedule && <div>
-                  <div>{schedule.time}</div>
-                  <div>{schedule.title}</div>
-                  <div>{schedule.teacher}</div>
-                  <div>{schedule.room}</div>
-              </div>
-              }
-              </div>
+             <Schedule schedule={schedule} day='mon' time={i} />
             )
           })}
           </>

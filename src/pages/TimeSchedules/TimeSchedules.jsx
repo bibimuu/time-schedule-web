@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router';
 import firebase from '../../config/firebase';
-import { Schedule } from '../../components/Schedule';
+import { SchedulesCard } from '../../components/SchedulesCard';
 import './TimeSchedules.css';
 
 const TimeSchedules = ({ history, authUser }) => {
-  // TODO: colorNumberに変更
-  const [scheduleList, setScheduleList] = useState(null)
-  const [number, setNumber] = useState(0);
-  useEffect(()=> {
-    const loadSchedules = async() => {
-      const db = firebase.firestore()
+  const [scheduleList, setScheduleList] = useState(null);
+  const [colorNumber, setColorNumber] = useState(0);
+  useEffect(() => {
+    const loadSchedules = async () => {
+      const db = firebase.firestore();
       const userQuery = db.collection('users').where('uid', '==', authUser.uid);
       const userQuerySnapshot = await userQuery.get();
       if (userQuerySnapshot.docs.length !== 1) {
@@ -23,20 +22,21 @@ const TimeSchedules = ({ history, authUser }) => {
         .where('userId', '==', userId);
       // const a = await scheduleQuery.get()
       await scheduleQuery.onSnapshot((snap) => {
-        setScheduleList(snap.docs.map(doc => {
-          return {
-            ...doc.data(),
-            id : doc.id
-          }
-        }))
-      })
-    }
-    loadSchedules()
+        setScheduleList(
+          snap.docs.map((doc) => {
+            return {
+              ...doc.data(),
+              id: doc.id,
+            };
+          })
+        );
+      });
+    };
+    loadSchedules();
+  }, [authUser.uid]);
 
-  }, [authUser.uid])
-
-  if (scheduleList=== null) {
-    return <>loading</>
+  if (scheduleList === null) {
+    return <>loading</>;
   }
 
   const logout = () => {
@@ -52,9 +52,9 @@ const TimeSchedules = ({ history, authUser }) => {
   };
 
   const changeColorFunction = () => {
-    setNumber(number + 1);
-    if (number === 5) {
-      setNumber(0);
+    setColorNumber(colorNumber + 1);
+    if (colorNumber === 5) {
+      setColorNumber(0);
     }
   };
 
@@ -66,44 +66,98 @@ const TimeSchedules = ({ history, authUser }) => {
     fri: '金',
   };
 
-  const scheduleColorNumber = `scheduleColorNumber${number}`;
+  const scheduleColorNumber = `scheduleColorNumber${colorNumber}`;
 
+  const mondayScheduleList = scheduleList
+    .filter((s) => s.day === 'mon')
+    .sort((s1, s2) => s1.time - s2.time);
+  const tuesdayScheduleList = scheduleList
+    .filter((s) => s.day === 'tue')
+    .sort((s1, s2) => s1.time - s2.time);
+  const wednesdayScheduleList = scheduleList
+    .filter((s) => s.day === 'wed')
+    .sort((s1, s2) => s1.time - s2.time);
+  const thursdayScheduleList = scheduleList
+    .filter((s) => s.day === 'thu')
+    .sort((s1, s2) => s1.time - s2.time);
+  const fridayScheduleList = scheduleList
+    .filter((s) => s.day === 'fri')
+    .sort((s1, s2) => s1.time - s2.time);
 
-  const mondayScheduleList = scheduleList.filter(s => s.day === 'mon').sort((s1,s2)  => s1.time - s2.time)
-  const tuesdayScheduleList = scheduleList.filter(s => s.day === 'tue').sort((s1,s2)  => s1.time - s2.time)
-  const fridayScheduleList = scheduleList.filter(s => s.day === 'fri').sort((s1,s2)  => s1.time - s2.time)
   return (
     <div className="timeSchedulesBackgroundContainer">
       <div className="timeSchedulesBackground">
-        <div>
-          <p>月曜の時間割は</p>
-          <>
-          {[1,2,3,4,5].map(i => {
-            const schedule = mondayScheduleList.find(s => s.time === i)
-            return (
-             <Schedule schedule={schedule} day='mon' time={i} />
-            )
-          })}
-          </>
-          <p>火曜の時間割は</p>
-          {tuesdayScheduleList.map(s => (
-            <div>
-              <div>{s.time}</div>
-              <div>{s.title}</div>
-              <div>{s.teacher}</div>
-              <div>{s.room}</div>
+        <div className={`schedulesContainer ${scheduleColorNumber}`}>
+          <div className="timeContainer">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+          </div>
+
+          <div className="oneDaySchedules">
+            <div className="daysContainer">
+              <div className="day">月</div>
+              <div className="day">火</div>
+              <div className="day">水</div>
+              <div className="day">木</div>
+              <div className="day">金</div>
             </div>
-          ))}
-          <p>金曜の時間割は</p>
-          {fridayScheduleList.map(s => (
-            <div>
-              <div>{s.time}</div>
-              <div>{s.title}</div>
-              <div>{s.teacher}</div>
-              <div>{s.room}</div>
+
+            <div className="schedules">
+              <div>
+                {[1, 2, 3, 4, 5].map((i) => {
+                  const schedule = mondayScheduleList.find((s) => s.time === i);
+                  return (
+                    <SchedulesCard schedule={schedule} day="mon" time={i} />
+                  );
+                })}
+              </div>
+
+              <div>
+                {[1, 2, 3, 4, 5].map((i) => {
+                  const schedule = tuesdayScheduleList.find(
+                    (s) => s.time === i
+                  );
+                  return (
+                    <SchedulesCard schedule={schedule} day="tue" time={i} />
+                  );
+                })}
+              </div>
+
+              <div>
+                {[1, 2, 3, 4, 5].map((i) => {
+                  const schedule = wednesdayScheduleList.find(
+                    (s) => s.time === i
+                  );
+                  return (
+                    <SchedulesCard schedule={schedule} day="wed" time={i} />
+                  );
+                })}
+              </div>
+
+              <div>
+                {[1, 2, 3, 4, 5].map((i) => {
+                  const schedule = thursdayScheduleList.find(
+                    (s) => s.time === i
+                  );
+                  return (
+                    <SchedulesCard schedule={schedule} day="thu" time={i} />
+                  );
+                })}
+              </div>
+
+              <div>
+                {[1, 2, 3, 4, 5].map((i) => {
+                  const schedule = fridayScheduleList.find((s) => s.time === i);
+                  return (
+                    <SchedulesCard schedule={schedule} day="fri" time={i} />
+                  );
+                })}
+              </div>
             </div>
-          ))}
-          
+          </div>
         </div>
         <div className="btnTextButtonContainer">
           <button

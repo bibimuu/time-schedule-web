@@ -8,15 +8,13 @@
 .schedules {
   display: flex;
   justify-content: space-around;
-  width: 700px;
+  width: 92%;
+  text-align: center;
+  margin-left: 30px;
 }
 
-.oneDaySchedule {
-  height: 415px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  /* overflow: hidden; */
+.oneDaySchedules {
+  width: 92%;
 }
 
 .timeSchedulesBackground {
@@ -39,41 +37,22 @@
   width: 850px;
   border-radius: 20px;
   padding: 30px;
-}
-
-.timeAndSchedulesContainer {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 .timeContainer {
   border-radius: 100px;
   font-family: 'Dosis', sans-serif;
   background-color: #ffffff;
-  height: 400px;
+  height: 420px;
   width: 8%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  font-size: 30px;
-}
-
-/* #sss {
-  color: red;
-  background: linear-gradient(#5cd91d, #80d0c7);
-} */
-
-.number:first-child {
-  margin-top: 5px;
-}
-
-.number {
-  margin: 20px 0;
-}
-
-.number:last-child {
-  margin-bottom: 4px;
+  font-size: 25px;
+  margin-top: 85px;
 }
 
 .daysContainer {
@@ -81,15 +60,15 @@
   justify-content: space-evenly;
   height: 12%;
   background-color: #ffffff;
-  width: 85%;
+  width: 90%;
   border-radius: 100px;
-  margin: 0px 0px 30px 100px;
+  margin: 0px 0px 30px 40px;
+  font-size: 25px;
 }
 
-.dayContainer {
-  font-size: 30px;
-  padding-top: 10px;
+.day {
   margin: 0 56px;
+  padding-top: 13px;
 }
 
 .btnTextButtonContainer {

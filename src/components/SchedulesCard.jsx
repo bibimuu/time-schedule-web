@@ -15,8 +15,8 @@ export const SchedulesCard = ({ schedule, day, time }) => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      height: '280px',
-      width: '400px',
+      height: '330px',
+      width: '430px',
       borderRadius: '90px',
       border: 'none',
       padding: '30px',
@@ -50,7 +50,12 @@ export const SchedulesCard = ({ schedule, day, time }) => {
         style={modalCustomStyles}
         contentLabel="Example Modal"
       >
-        <AddSchedules schedule={schedule} day={day} time={time} />
+        <AddSchedules
+          schedule={schedule}
+          day={day}
+          time={time}
+          closeModal={closeModal}
+        />
       </Modal>
     </>
   );

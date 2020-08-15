@@ -7,3 +7,43 @@
   height: 15px;
   text-align: center;
 }
+
+.close:hover {
+  transform: rotate(-90deg);
+  transition-duration: 0.5s;
+}
+
+.close {
+  transition-duration: 0.5s;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  margin-left: 320px;
+}
+.close span::before,
+.close span::after {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 84%;
+  height: 16%;
+  margin: -8% 0 0 -42%;
+  background: #707070;
+  border-radius: 50px;
+}
+.close span::before {
+  transform: rotate(-45deg);
+}
+.close span::after {
+  transform: rotate(45deg);
+}
+
+.loading {
+  background: -webkit-linear-gradient(0deg, #40e0d0, #a6ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

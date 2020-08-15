@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { InputBox } from '../../components/InputBox';
@@ -7,14 +7,17 @@ import { Error } from '../../components/Error';
 import firebase from '../../config/firebase';
 import './AddSchedules.css';
 
-export const AddSchedules = ({ schedule, day, time }) => {
+export const AddSchedules = ({ schedule, day, time, closeModal }) => {
+  const [loading, setLoading] = useState(false);
   const { handleSubmit, register, errors } = useForm();
+
   const onSubmit = async (data) => {
+    setLoading(true);
     const db = firebase.firestore();
 
     if (schedule) {
       const scheduleId = db.collection('schedules').doc(schedule.id);
-      return scheduleId.update({
+      await scheduleId.update({
         title: data.title,
         room: data.classRoom,
       });
@@ -23,7 +26,7 @@ export const AddSchedules = ({ schedule, day, time }) => {
       const userQuerySnapshot = await userQuery.get();
       const userId = userQuerySnapshot.docs[0].id;
       const newSchedule = db.collection('schedules').doc();
-      return newSchedule.set({
+      await newSchedule.set({
         title: data.title,
         room: data.classRoom,
         day: day,
@@ -31,10 +34,15 @@ export const AddSchedules = ({ schedule, day, time }) => {
         userId: userId,
       });
     }
+    setLoading(false);
+    closeModal();
   };
 
   return (
     <div>
+      <div className="close" onClick={closeModal}>
+        <span></span>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputBox
           placeholder="教科を入力してね"
@@ -76,7 +84,11 @@ export const AddSchedules = ({ schedule, day, time }) => {
           )}
         </div>
         <div className="btnPosition">
-          <InputButton value="登録" />
+          {loading ? (
+            <div className="loading">ちょっと待ってね...</div>
+          ) : (
+            <InputButton value="登録" />
+          )}
         </div>
       </form>
     </div>

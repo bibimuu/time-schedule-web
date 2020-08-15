@@ -6,7 +6,8 @@ import './TimeSchedules.css';
 
 const TimeSchedules = ({ authUser }) => {
   const [scheduleList, setScheduleList] = useState(null);
-  const [colorNumber, setColorNumber] = useState(0);
+  const [colorNumber, setColorNumber] = useState('');
+
   useEffect(() => {
     const loadSchedules = async () => {
       const db = firebase.firestore();
@@ -16,6 +17,14 @@ const TimeSchedules = ({ authUser }) => {
         throw new Error('failed to fetch valid users count');
       }
       const userId = userQuerySnapshot.docs[0].id;
+
+      //userのcolorNumberを取得
+      const userRef = db.collection('users').doc(userId);
+      const userSnap = await userRef.get();
+      const userData = userSnap.data();
+      const userColorNumber = userData['colorNumber'];
+      setColorNumber(userColorNumber);
+
       // userドキュメントのIdを使って該当するscheduleドキュメントを取得
       const scheduleQuery = db
         .collection('schedules')
@@ -50,11 +59,26 @@ const TimeSchedules = ({ authUser }) => {
       });
   };
 
-  const changeColorFunction = () => {
-    setColorNumber(colorNumber + 1);
-    if (colorNumber === 5) {
-      setColorNumber(0);
+  const changeColorFunction = async () => {
+    const newColor = colorNumber === 5 ? 0 : colorNumber + 1;
+    setColorNumber(newColor);
+    const db = firebase.firestore();
+
+    const userQuery = db.collection('users').where('uid', '==', authUser.uid);
+    const userQuerySnapshot = await userQuery.get();
+    if (userQuerySnapshot.docs.length !== 1) {
+      throw new Error('failed to fetch valid users count');
     }
+    const userId = userQuerySnapshot.docs[0].id;
+
+    const scheduleId = db.collection('users').doc(userId);
+    const updateColorNumber = () => {
+      scheduleId.update({
+        colorNumber: newColor,
+      });
+    };
+
+    updateColorNumber();
   };
 
   const days = {

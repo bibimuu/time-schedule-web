@@ -27,6 +27,7 @@ export const Signup = ({ history }) => {
     await db.collection('users').doc().set({
       email: data.signupEmail,
       uid: response.user.uid,
+      colorNumber: 0,
     });
   };
 

@@ -4,7 +4,7 @@ import firebase from '../../config/firebase';
 import { SchedulesCard } from '../../components/SchedulesCard';
 import './TimeSchedules.css';
 
-const TimeSchedules = ({ history, authUser }) => {
+const TimeSchedules = ({ authUser }) => {
   const [scheduleList, setScheduleList] = useState(null);
   const [colorNumber, setColorNumber] = useState(0);
   useEffect(() => {
@@ -20,7 +20,6 @@ const TimeSchedules = ({ history, authUser }) => {
       const scheduleQuery = db
         .collection('schedules')
         .where('userId', '==', userId);
-      // const a = await scheduleQuery.get()
       await scheduleQuery.onSnapshot((snap) => {
         setScheduleList(
           snap.docs.map((doc) => {

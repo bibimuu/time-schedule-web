@@ -7,16 +7,29 @@ import { Error } from '../../components/Error';
 import firebase from '../../config/firebase';
 import './AddSchedules.css';
 
-// NOTE: dayとtimeはscheduleがないときに新規登録するために使う
 export const AddSchedules = ({ schedule, day, time }) => {
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = async (data) => {
     const db = firebase.firestore();
+
     if (schedule) {
-      // TODO: update
+      const scheduleId = db.collection('schedules').doc(schedule.id);
+      return scheduleId.update({
+        title: data.title,
+        room: data.classRoom,
+      });
     } else {
-      // TODO: create
-      // dayとtimeと入力内容をfirestoreにset
+      const userQuery = db.collection('users');
+      const userQuerySnapshot = await userQuery.get();
+      const userId = userQuerySnapshot.docs[0].id;
+      const newSchedule = db.collection('schedules').doc();
+      return newSchedule.set({
+        title: data.title,
+        room: data.classRoom,
+        day: day,
+        time: time,
+        userId: userId,
+      });
     }
   };
 

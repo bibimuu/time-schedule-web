@@ -43,7 +43,7 @@ export const Signup = ({ history }) => {
                 color="#ffffff"
                 label="メールアドレス"
               />
-              <div className="errorContainer">
+              <div className="authErrorContainer">
                 {errors.signupEmail?.type === 'required' && (
                   <Error>メールアドレスが入力されてないよ</Error>
                 )}
@@ -63,7 +63,7 @@ export const Signup = ({ history }) => {
                 type="password"
                 label="パスワード"
               />
-              <div className="errorContainer">
+              <div className="authErrorContainer">
                 {errors.signupPassword?.type === 'required' && (
                   <Error>パスワードが入力されてないよ</Error>
                 )}

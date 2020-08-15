@@ -3,14 +3,15 @@ import { useForm } from 'react-hook-form';
 
 import { InputBox } from '../../components/InputBox';
 import { InputButton } from '../../components/InputButton';
+import { Error } from '../../components/Error';
 import firebase from '../../config/firebase';
-import './TimeSchedules.css';
+import './AddSchedules.css';
 
 // NOTE: dayとtimeはscheduleがないときに新規登録するために使う
 export const AddSchedules = ({ schedule, day, time }) => {
   const { handleSubmit, register, errors } = useForm();
   const onSubmit = async (data) => {
-    const db = firebase.firestore()
+    const db = firebase.firestore();
     if (schedule) {
       // TODO: update
     } else {
@@ -23,14 +24,22 @@ export const AddSchedules = ({ schedule, day, time }) => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputBox
-          placeholder="title"
-          register={register({ required: true, maxLength: 30 })}
+          placeholder="教科を入力してね"
+          register={register({ required: true, maxLength: 5 })}
           name="title"
           type="text"
           defaultValue={schedule && schedule.title}
+          smallInputBox="smallInputBox"
+          small_text_underline="small_text_underline"
         />
-        {errors.title?.type === 'required' && 'クラス名は、必須項目です。'}
-        {errors.title?.type === 'maxLength' && '最大5文字までです。'}
+        <div className="ModalErrorContainer">
+          {errors.title?.type === 'required' && (
+            <Error>クラス名は、必須だよ。</Error>
+          )}
+          {errors.title?.type === 'maxLength' && (
+            <Error>最大5文字までだよ。</Error>
+          )}
+        </div>
         {/* <InputBox
           placeholder="teacher"
           register={register({ maxLength: 15 })}
@@ -39,14 +48,23 @@ export const AddSchedules = ({ schedule, day, time }) => {
         /> */}
         {/* {errors.teacher?.type === 'maxLength' && '最大15文字までです。'} */}
         <InputBox
-          placeholder="classRoom"
+          placeholder="クラスを入力してね"
           register={register({ maxLength: 5 })}
           name="classRoom"
           type="text"
           overlayClassName="overlay"
+          defaultValue={schedule && schedule.room}
+          smallInputBox="smallInputBox"
+          small_text_underline="small_text_underline"
         />
-        {errors.classRoom?.type === 'maxLength' && '最大5文字までです。'}
-        <InputButton value="登録" />
+        <div className="ModalErrorContainer">
+          {errors.classRoom?.type === 'maxLength' && (
+            <Error>最大5文字までだよ。</Error>
+          )}
+        </div>
+        <div className="btnPosition">
+          <InputButton value="登録" />
+        </div>
       </form>
     </div>
   );

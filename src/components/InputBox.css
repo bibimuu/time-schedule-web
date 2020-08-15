@@ -1,10 +1,11 @@
-.center {
+.inputContainer {
   display: flex;
   justify-content: center;
+  height: 60px;
 }
 
 .inputBox {
-  width: 95%;
+  width: 90%;
   margin: 15px 0 5px 0;
   border: none;
   outline: none;
@@ -14,18 +15,23 @@
   font-size: 20px;
 }
 
+.smallInputBox {
+  width: 80%;
+  font-size: 17px;
+  color: #707070;
+  text-align: center;
+}
+
 .text_underline {
   border-top: 5px solid #707070;
-  margin-bottom: 2px;
+  width: 90%;
+  margin: 0 auto 2px auto;
   border-radius: 10px;
   box-shadow: 0 0.5px 2px -1px rgb(133, 129, 129);
 }
 
-.inputBox:focus {
-  border: none;
-  width: 100%;
-  transition-duration: 0.5s;
-  transition-property: width;
-  box-shadow: 0px 0px 0px 5px #f1bf2b inset;
-  background-color: transparent;
+.small_text_underline {
+  width: 70%;
+  border-width: 2px;
+  /* margin: 0 auto 10px auto; */
 }

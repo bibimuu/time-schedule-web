@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './SchedulesCard.css';
-import { AddSchedules } from '../pages/TimeSchedules/AddSchedules';
+import { AddSchedules } from '../pages/AddSchedules/AddSchedules';
 
 export const SchedulesCard = ({ schedule, day, time }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   const modalCustomStyles = {
+    overlay: { backgroundColor: 'rgba(0, 0, 0, 0.3)' },
     content: {
       top: '50%',
       left: '50%',
@@ -14,6 +15,11 @@ export const SchedulesCard = ({ schedule, day, time }) => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+      height: '280px',
+      width: '400px',
+      borderRadius: '90px',
+      border: 'none',
+      padding: '30px',
     },
   };
 

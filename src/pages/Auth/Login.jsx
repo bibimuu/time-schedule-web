@@ -26,14 +26,13 @@ export const Login = ({ history }) => {
           <div className="formContainer">
             <div className="inputBoxContainer">
               <InputBox
-                placeholder="email"
                 register={register({ required: true, maxLength: 30 })}
                 name="loginEmail"
                 type="email"
                 color="#ffffff"
                 label="メールアドレス"
               />
-              <div className="errorContainer">
+              <div className="authErrorContainer">
                 {errors.loginEmail?.type === 'required' && (
                   <Error>メールアドレスが入力されてないよ</Error>
                 )}
@@ -44,7 +43,6 @@ export const Login = ({ history }) => {
             </div>
             <div className="inputBoxContainer">
               <InputBox
-                placeholder="password"
                 register={register({
                   required: true,
                   maxLength: 20,
@@ -54,7 +52,7 @@ export const Login = ({ history }) => {
                 type="password"
                 label="パスワード"
               />
-              <div className="errorContainer">
+              <div className="authErrorContainer">
                 {errors.loginPassword?.type === 'required' && (
                   <Error>パスワードが入力されてないよ</Error>
                 )}

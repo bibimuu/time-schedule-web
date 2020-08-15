@@ -1,6 +1,6 @@
 .btn-push {
   display: inline-block;
-  background-color: #ffa300;
+  background-color: #79bf36;
   font-size: 20px;
   color: #fff;
   text-decoration: none;
@@ -12,13 +12,13 @@
 }
 
 .btn-push:hover {
-  background-color: #d68904;
+  background-color: #85d13f;
   /* transition-duration: 0.5s; */
 }
 
 .btn-push:active {
   transform: translateY(4px);
-  background-color: #d68904;
+  background-color: #8edd43;
   /* transition-duration: 0.5s; */
   outline: none;
 }

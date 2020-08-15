@@ -1,27 +1,37 @@
 import React from 'react';
 import './InputBox.css';
 
-// TODO: destructuring
-export const InputBox = (props) => {
+export const InputBox = ({
+  color,
+  placeholder,
+  defaultValue,
+  name,
+  register,
+  type,
+  label,
+  small_text_underline,
+  smallInputBox,
+}) => {
   return (
     <>
-      <label htmlFor={props.name} style={{ color: props.color }}>
-        {props.label}
+      <label htmlFor={name} style={{ color: color }}>
+        {label}
       </label>
-      <div className="center">
+      <div className="inputContainer">
         <input
-          type={props.type}
-          ref={props.register}
-          name={props.name}
-          id={props.name}
-          className="inputBox"
-          style={{ color: props.color }}
-          defaultValue={props.defaultValue || ''}
+          type={type}
+          ref={register}
+          name={name}
+          id={name}
+          className={`${smallInputBox} inputBox`}
+          style={{ color: color }}
+          defaultValue={defaultValue || ''}
+          placeholder={placeholder}
         />
       </div>
       <div
-        className="text_underline"
-        style={{ borderColor: props.color }}
+        className={`${small_text_underline} text_underline`}
+        style={{ borderColor: color }}
       ></div>
     </>
   );

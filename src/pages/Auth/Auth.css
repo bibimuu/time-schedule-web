@@ -20,11 +20,7 @@
   left: 59%;
 }
 
-/* .inputBoxContainer {
-  margin-bottom: 55px;
-} */
-
-.errorContainer {
+.authErrorContainer {
   height: 55px;
 }
 

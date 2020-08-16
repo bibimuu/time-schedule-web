@@ -74,7 +74,7 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
         /> */}
         {/* {errors.teacher?.type === 'maxLength' && '最大15文字までです。'} */}
         <InputBox
-          placeholder="クラスを入力してね"
+          placeholder="教室を入力してね"
           register={register({ maxLength: 5 })}
           name="classRoom"
           type="text"

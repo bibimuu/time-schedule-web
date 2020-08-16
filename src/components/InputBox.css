@@ -1,0 +1,37 @@
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.inputBox {
+  width: 90%;
+  margin: 15px 0 5px 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition-duration: 0.5s;
+  padding: 5px 13px;
+  font-size: 20px;
+}
+
+.smallInputBox {
+  width: 80%;
+  font-size: 17px;
+  color: #707070;
+  text-align: center;
+}
+
+.text_underline {
+  border-top: 5px solid #707070;
+  width: 90%;
+  margin: 0 auto 2px auto;
+  border-radius: 10px;
+  box-shadow: 0 0.5px 2px -1px rgb(133, 129, 129);
+}
+
+.small_text_underline {
+  width: 80%;
+  border-width: 2px;
+  /* margin: 0 auto 10px auto; */
+}

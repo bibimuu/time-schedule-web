@@ -1,0 +1,31 @@
+.schedulesCard {
+  background-color: #ffffff;
+  border-radius: 40px;
+  height: 67px;
+  width: 115px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: center;
+  transition-duration: 0.5s;
+}
+
+.schedulesCard:hover {
+  overflow: hidden;
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.smallFont {
+  font-size: 13px;
+}
+
+.gap {
+  margin-top: 10px;
+}

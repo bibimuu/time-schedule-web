@@ -27,7 +27,7 @@ export const InputBox = ({
           style={{ color: color }}
           defaultValue={defaultValue || ''}
           placeholder={placeholder}
-          autocomplete="off"
+          autoComplete="off"
         />
       </div>
       <div

@@ -51,6 +51,7 @@ export const SchedulesCard = ({ schedule, day, time }) => {
         onRequestClose={closeModal}
         style={modalCustomStyles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >
         <AddSchedules
           schedule={schedule}

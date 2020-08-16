@@ -14,8 +14,14 @@ export const Login = ({ history }) => {
     await firebase
       .auth()
       .signInWithEmailAndPassword(data.loginEmail, data.loginPassword)
-      .catch((error) => {
-        alert(error.code, error.message);
+      .catch((e) => {
+        if (e.code === 'auth/user-not-found') {
+          alert('メールアドレスは登録されていません');
+        }
+        if (e.code === 'auth/wrong-password') {
+          alert('パスワードを間違えています');
+        }
+        alert(e.code);
       });
   };
 

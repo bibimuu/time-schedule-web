@@ -125,7 +125,12 @@ const TimeSchedules = ({ authUser }) => {
                 {[1, 2, 3, 4, 5].map((i) => {
                   const schedule = mondayScheduleList.find((s) => s.time === i);
                   return (
-                    <SchedulesCard schedule={schedule} day="mon" time={i} />
+                    <SchedulesCard
+                      schedule={schedule}
+                      key={`mon+${i}`}
+                      day="mon"
+                      time={i}
+                    />
                   );
                 })}
               </div>
@@ -136,7 +141,12 @@ const TimeSchedules = ({ authUser }) => {
                     (s) => s.time === i
                   );
                   return (
-                    <SchedulesCard schedule={schedule} day="tue" time={i} />
+                    <SchedulesCard
+                      key={`tue+${i}`}
+                      schedule={schedule}
+                      day="tue"
+                      time={i}
+                    />
                   );
                 })}
               </div>
@@ -147,7 +157,12 @@ const TimeSchedules = ({ authUser }) => {
                     (s) => s.time === i
                   );
                   return (
-                    <SchedulesCard schedule={schedule} day="wed" time={i} />
+                    <SchedulesCard
+                      key={`wed+${i}`}
+                      schedule={schedule}
+                      day="wed"
+                      time={i}
+                    />
                   );
                 })}
               </div>
@@ -158,7 +173,12 @@ const TimeSchedules = ({ authUser }) => {
                     (s) => s.time === i
                   );
                   return (
-                    <SchedulesCard schedule={schedule} day="thu" time={i} />
+                    <SchedulesCard
+                      key={`thu+${i}`}
+                      schedule={schedule}
+                      day="thu"
+                      time={i}
+                    />
                   );
                 })}
               </div>
@@ -167,7 +187,12 @@ const TimeSchedules = ({ authUser }) => {
                 {[1, 2, 3, 4, 5].map((i) => {
                   const schedule = fridayScheduleList.find((s) => s.time === i);
                   return (
-                    <SchedulesCard schedule={schedule} day="fri" time={i} />
+                    <SchedulesCard
+                      key={`fri+${i}`}
+                      schedule={schedule}
+                      day="fri"
+                      time={i}
+                    />
                   );
                 })}
               </div>

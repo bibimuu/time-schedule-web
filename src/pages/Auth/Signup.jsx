@@ -20,8 +20,15 @@ export const Signup = ({ history }) => {
         data.signupPassword
       );
     } catch (e) {
-      alert(e.message);
-      return;
+      if (e.code === 'auth/invalid-email') {
+        alert('不正なメールアドレスです');
+      }
+
+      if (e.code === 'auth/email-already-in-use') {
+        alert('メールアドレスはすでに登録されています');
+      }
+
+      alert(e.code);
     }
 
     await db.collection('users').doc().set({

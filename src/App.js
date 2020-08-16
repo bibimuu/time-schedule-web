@@ -9,7 +9,7 @@ import { useAuth } from './useAuth';
 function App() {
   const { authUser, loading } = useAuth();
 
-  if (loading) return <>Loading auth user...</>;
+  if (loading) return <div className="pageLoading">L O A D I N G ...</div>;
 
   return (
     <div className="App">

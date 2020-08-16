@@ -37,7 +37,7 @@ const TimeSchedules = ({ authUser }) => {
   }, [authUser.uid]);
 
   if (scheduleList === null) {
-    return <>loading</>;
+    return <div className="pageLoading">L O A D I N G ...</div>;
   }
 
   const logout = () => {

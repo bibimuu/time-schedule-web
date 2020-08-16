@@ -48,7 +48,7 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
 
   return (
     <div>
-      <div className="close" onClick={closeModal}>
+      <div className="modalClose" onClick={closeModal}>
         <span></span>
       </div>
       <form>
@@ -90,9 +90,9 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
         </div>
         <div className="btnPosition">
           {loading ? (
-            <div className="loading">ちょっと待ってね...</div>
+            <div className="modalLoading">ちょっと待ってね...</div>
           ) : (
-            <div className="space">
+            <div className="modalButtonsSpace">
               {schedule && (
                 <InputButton
                   value="空にしちゃう"

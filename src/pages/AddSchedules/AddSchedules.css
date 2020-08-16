@@ -8,12 +8,12 @@
   text-align: center;
 }
 
-.close:hover {
+.modalClose:hover {
   transform: rotate(-90deg);
   transition-duration: 0.5s;
 }
 
-.close {
+.modalClose {
   transition-duration: 0.5s;
   display: inline-block;
   width: 30px;
@@ -22,8 +22,8 @@
   cursor: pointer;
   margin-left: 320px;
 }
-.close span::before,
-.close span::after {
+.modalClose span::before,
+.modalClose span::after {
   display: block;
   content: '';
   position: absolute;
@@ -35,20 +35,20 @@
   background: #707070;
   border-radius: 50px;
 }
-.close span::before {
+.modalClose span::before {
   transform: rotate(-45deg);
 }
-.close span::after {
+.modalClose span::after {
   transform: rotate(45deg);
 }
 
-.loading {
+.modalLoading {
   background: -webkit-linear-gradient(0deg, #40e0d0, #a6ff00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.space {
+.modalButtonsSpace {
   display: flex;
   justify-content: space-around;
 }

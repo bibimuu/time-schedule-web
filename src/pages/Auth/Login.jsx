@@ -20,8 +20,10 @@ export const Login = ({ history }) => {
         }
         if (e.code === 'auth/wrong-password') {
           alert('パスワードを間違えています');
+        } else {
+          alert(e.code);
         }
-        alert(e.code);
+        return;
       });
   };
 

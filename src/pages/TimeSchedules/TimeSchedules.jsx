@@ -11,17 +11,10 @@ const TimeSchedules = ({ authUser }) => {
   useEffect(() => {
     const loadSchedules = async () => {
       const db = firebase.firestore();
-      const userQuery = db.collection('users').where('uid', '==', authUser.uid);
-      const userQuerySnapshot = await userQuery.get();
-      if (userQuerySnapshot.docs.length !== 1) {
-        throw new Error('failed to fetch valid users count');
-      }
-      const userId = userQuerySnapshot.docs[0].id;
-
-      //userのcolorNumberを取得
-      const userRef = db.collection('users').doc(userId);
+      const userId = authUser.uid;
+      const userRef = db.collection('users').where('uid', '==', authUser.uid);
       const userSnap = await userRef.get();
-      const userData = userSnap.data();
+      const userData = userSnap.docs[0].data();
       const userColorNumber = userData['colorNumber'];
       setColorNumber(userColorNumber);
 

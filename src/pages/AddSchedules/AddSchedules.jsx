@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { InputBox } from '../../components/InputBox';
@@ -15,26 +15,25 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
   const onSubmit = async (data) => {
     setLoading(true);
     const db = firebase.firestore();
-
     if (schedule) {
       const scheduleId = db.collection('schedules').doc(schedule.id);
+
       await scheduleId.update({
         title: data.title,
         room: data.classRoom,
       });
     } else {
-      const userQuery = db.collection('users');
-      const userQuerySnapshot = await userQuery.get();
-      const userId = userQuerySnapshot.docs[0].id;
+      const user = firebase.auth().currentUser;
       const newSchedule = db.collection('schedules').doc();
       await newSchedule.set({
         title: data.title,
         room: data.classRoom,
         day: day,
         time: time,
-        userId: userId,
+        userId: user.uid,
       });
     }
+
     setLoading(false);
     closeModal();
   };

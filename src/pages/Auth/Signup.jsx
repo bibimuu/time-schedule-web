@@ -26,9 +26,10 @@ export const Signup = ({ history }) => {
 
       if (e.code === 'auth/email-already-in-use') {
         alert('メールアドレスはすでに登録されています');
+      } else {
+        alert(e.code);
       }
-
-      alert(e.code);
+      return;
     }
 
     await db.collection('users').doc().set({

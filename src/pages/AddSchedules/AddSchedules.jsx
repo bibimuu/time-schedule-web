@@ -9,6 +9,7 @@ import './AddSchedules.css';
 
 export const AddSchedules = ({ schedule, day, time, closeModal }) => {
   const [loading, setLoading] = useState(false);
+  const [fail, setFail] = useState(false);
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = async (data) => {
@@ -38,15 +39,23 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
     closeModal();
   };
 
+  const onDelete = async () => {
+    setLoading(true);
+    const db = firebase.firestore();
+    await db.collection('schedules').doc(schedule.id).delete();
+    setLoading(false);
+    closeModal();
+  };
+
   return (
     <div>
       <div className="close" onClick={closeModal}>
         <span></span>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <InputBox
           placeholder="教科を入力してね"
-          register={register({ required: true, maxLength: 5 })}
+          register={register({ maxLength: 5 })}
           name="title"
           type="text"
           defaultValue={schedule && schedule.title}
@@ -54,9 +63,6 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
           small_text_underline="small_text_underline"
         />
         <div className="ModalErrorContainer">
-          {errors.title?.type === 'required' && (
-            <Error>クラス名は、必須だよ。</Error>
-          )}
           {errors.title?.type === 'maxLength' && (
             <Error>最大5文字までだよ。</Error>
           )}
@@ -87,7 +93,15 @@ export const AddSchedules = ({ schedule, day, time, closeModal }) => {
           {loading ? (
             <div className="loading">ちょっと待ってね...</div>
           ) : (
-            <InputButton value="登録" />
+            <div className="space">
+              {schedule && (
+                <InputButton
+                  value="空にしちゃう"
+                  onClick={handleSubmit(onDelete)}
+                />
+              )}
+              <InputButton value="登録" onClick={handleSubmit(onSubmit)} />
+            </div>
           )}
         </div>
       </form>

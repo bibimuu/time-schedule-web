@@ -81,14 +81,6 @@ const TimeSchedules = ({ authUser }) => {
     updateColorNumber();
   };
 
-  const days = {
-    mon: '月',
-    tue: '火',
-    wed: '水',
-    thu: '木',
-    fri: '金',
-  };
-
   const scheduleColorNumber = `scheduleColorNumber${colorNumber}`;
 
   const mondayScheduleList = scheduleList

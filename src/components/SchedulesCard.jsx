@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { Transition } from 'react-transition-group';
 
 import './SchedulesCard.css';
 import { AddSchedules } from '../pages/AddSchedules/AddSchedules';

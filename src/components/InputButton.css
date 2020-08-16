@@ -1,0 +1,25 @@
+.btn-push {
+  display: inline-block;
+  background-color: #79bf36;
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border-style: none;
+  /* transition-duration: 0.5s; */
+  box-shadow: 0 3px 4px -1px rgb(133, 129, 129);
+  outline: none;
+}
+
+.btn-push:hover {
+  background-color: #85d13f;
+  /* transition-duration: 0.5s; */
+}
+
+.btn-push:active {
+  transform: translateY(4px);
+  background-color: #8edd43;
+  /* transition-duration: 0.5s; */
+  outline: none;
+}

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-時間割画面">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="時間割画面" clip-path="url(#clip-時間割画面)">
+    <rect width="1920" height="1080" fill="#fff"/>
+    <rect id="長方形_17" data-name="長方形 17" width="238" height="316" transform="translate(161 343)" fill="#79bf36"/>
+    <rect id="長方形_22" data-name="長方形 22" width="238" height="316" transform="translate(770 732)" fill="#f01376"/>
+    <rect id="長方形_29" data-name="長方形 29" width="238" height="316" transform="translate(1567 278)" fill="#f05e3e"/>
+    <rect id="長方形_31" data-name="長方形 31" width="180" height="226" transform="translate(1567 634)" fill="#1db2d9"/>
+    <rect id="長方形_26" data-name="長方形 26" width="440" height="420" transform="translate(568 32)" fill="#f1bf2b"/>
+    <rect id="長方形_25" data-name="長方形 25" width="97" height="73" transform="translate(1045 1007)" fill="#79bf36"/>
+    <rect id="長方形_23" data-name="長方形 23" width="238" height="63" transform="translate(280)" fill="#f05e3e"/>
+    <rect id="長方形_27" data-name="長方形 27" width="252" height="63" transform="translate(1050)" fill="#1db2d9"/>
+    <rect id="長方形_28" data-name="長方形 28" width="304" height="63" transform="translate(1338)" fill="#f05e3e"/>
+    <rect id="長方形_19" data-name="長方形 19" width="238" height="305" fill="#1db2d9"/>
+    <rect id="長方形_18" data-name="長方形 18" width="238" height="383" transform="translate(0 697)" fill="#f05e3e"/>
+    <rect id="長方形_20" data-name="長方形 20" width="119" height="316" transform="translate(0 343)" fill="#f1bf2b"/>
+    <rect id="長方形_30" data-name="長方形 30" width="73" height="316" transform="translate(1847 278)" fill="#f01376"/>
+    <rect id="長方形_32" data-name="長方形 32" width="132" height="316" transform="translate(1788 634)" fill="#f1bf2b"/>
+    <rect id="長方形_21" data-name="長方形 21" width="453" height="88" transform="translate(280 992)" fill="#f1bf2b"/>
+    <rect id="長方形_24" data-name="長方形 24" width="237" height="238" transform="translate(1683)" fill="#79bf36"/>
+    <rect id="長方形_42" data-name="長方形 42" width="238" height="253" transform="translate(280 697)" fill="#1db2d9"/>
+    <rect id="長方形_43" data-name="長方形 43" width="165" height="316" transform="translate(564 634)" fill="#79bf36"/>
+    <rect id="長方形_44" data-name="長方形 44" width="590" height="140" transform="translate(1052 98)" fill="#f01376"/>
+    <rect id="長方形_45" data-name="長方形 45" width="238" height="207" transform="translate(280 98)" fill="#f01376"/>
+    <rect id="長方形_46" data-name="長方形 46" width="477" height="316" transform="translate(1050 273)" fill="#79bf36"/>
+    <rect id="長方形_47" data-name="長方形 47" width="473" height="236" transform="translate(1054 624)" fill="#f1bf2b"/>
+    <rect id="長方形_48" data-name="長方形 48" width="240" height="196" transform="translate(770 501)" fill="#1db2d9"/>
+    <rect id="長方形_49" data-name="長方形 49" width="166" height="98" transform="translate(564 501)" fill="#f01376"/>
+    <rect id="長方形_50" data-name="長方形 50" width="77" height="319" transform="translate(441 340)" fill="#1db2d9"/>
+    <rect id="長方形_51" data-name="長方形 51" width="132" height="90" transform="translate(1788 990)" fill="#1db2d9"/>
+    <rect id="長方形_52" data-name="長方形 52" width="132" height="90" transform="translate(1050 895)" fill="#1db2d9"/>
+  </g>
+</svg>

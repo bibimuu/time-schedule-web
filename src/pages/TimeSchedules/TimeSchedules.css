@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap');
+
+.timeSchedulesBackgroundContainer {
+  height: 100vh;
+  width: 100vw;
+}
+
+.schedules {
+  display: flex;
+  justify-content: space-around;
+  width: 92%;
+  text-align: center;
+  margin-left: 30px;
+}
+
+.oneDaySchedules {
+  width: 92%;
+}
+
+.timeSchedulesBackground {
+  background-image: url('../../asset/TimeSchedules.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schedulesContainer {
+  box-shadow: 0 0.5px 2px -1px rgb(133, 129, 129);
+  width: 500px;
+  height: 550px;
+  width: 850px;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.timeContainer {
+  border-radius: 100px;
+  font-family: 'Dosis', sans-serif;
+  background-color: #ffffff;
+  height: 420px;
+  width: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 25px;
+  margin-top: 85px;
+}
+
+.daysContainer {
+  display: flex;
+  justify-content: space-evenly;
+  height: 12%;
+  background-color: #ffffff;
+  width: 90%;
+  border-radius: 100px;
+  margin: 0px 0px 30px 40px;
+  font-size: 25px;
+}
+
+.day {
+  margin: 0 56px;
+  padding-top: 13px;
+}
+
+.btnTextButtonContainer {
+  position: absolute;
+  top: 91%;
+  left: 65%;
+  display: block;
+}
+
+.textButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  font-size: 15px;
+  transition-duration: 0.3s;
+  margin: 0 15px;
+  color: #707070;
+}
+
+.textButton:hover {
+  color: #79bf36;
+  transition-duration: 0.3s;
+}
+
+.scheduleColorNumber0 {
+  background: linear-gradient(#1db2d9, #80d0c7);
+}
+
+.scheduleColorNumber1 {
+  background: linear-gradient(#d9afd9, #97d9e1);
+}
+.scheduleColorNumber2 {
+  background: linear-gradient(#fad961, #f76b1c);
+}
+.scheduleColorNumber3 {
+  background: linear-gradient(#9face6, #74ebd5);
+}
+.scheduleColorNumber4 {
+  background: linear-gradient(#2dc859, #e7f122);
+}
+.scheduleColorNumber5 {
+  background: linear-gradient(#a9c9ff, #ffbbec);
+}

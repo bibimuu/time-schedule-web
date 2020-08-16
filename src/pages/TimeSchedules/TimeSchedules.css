@@ -88,6 +88,7 @@
   font-size: 15px;
   transition-duration: 0.3s;
   margin: 0 15px;
+  color: #707070;
 }
 
 .textButton:hover {

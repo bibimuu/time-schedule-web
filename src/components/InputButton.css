@@ -9,6 +9,7 @@
   border-style: none;
   /* transition-duration: 0.5s; */
   box-shadow: 0 3px 4px -1px rgb(133, 129, 129);
+  outline: none;
 }
 
 .btn-push:hover {

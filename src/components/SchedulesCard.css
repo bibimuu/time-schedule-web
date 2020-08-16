@@ -21,3 +21,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.smallFont {
+  font-size: 13px;
+}
+
+.gap {
+  margin-top: 10px;
+}

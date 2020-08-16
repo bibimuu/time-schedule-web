@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { Transition } from 'react-transition-group';
+
 import './SchedulesCard.css';
 import { AddSchedules } from '../pages/AddSchedules/AddSchedules';
 
@@ -30,6 +32,7 @@ export const SchedulesCard = ({ schedule, day, time }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+
   return (
     <>
       <div className="schedulesCard" onClick={openModal}>
@@ -39,7 +42,7 @@ export const SchedulesCard = ({ schedule, day, time }) => {
             <>
               <div>{schedule.title}</div>
               {/* <div>{schedule.teacher}</div> */}
-              <div>{schedule.room}</div>
+              <div className="smallFont gap">{schedule.room}</div>
             </>
           )}
         </div>
